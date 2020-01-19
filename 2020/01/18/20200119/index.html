@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200119" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/18/20200119/" class="article-date">
+  <time datetime="2020-01-18T07:49:09.375Z" itemprop="datePublished">2020-01-18</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <blockquote>
+<p>关于C语言除0引发的思考</p>
+</blockquote>
+<p>进行浮点数编程时，如果没有注意，常常会出现输出类似 1.#IND, 1.#INF 或者 nan, inf 之类奇怪的输出。这通常隐含了浮点数操作的异常。</p>
+ <a id="more"></a>
+<p>进行整数除0的时候，程序会检查出一个错误，比如对于这个代码：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;   </span><br><span class="line">    int m;   </span><br><span class="line">    m=1/0;   </span><br><span class="line">    printf(&quot;%d&quot;,m);    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>运行完以后程序就会警告：warning: division by zero [-Wdiv-by-zero]<br>但是对于浮点数，就没有类似的检查：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;math.h&gt;</span><br><span class="line">int main()</span><br><span class="line">&#123;   </span><br><span class="line">    double m;   </span><br><span class="line">    m=1.0/0.0;   </span><br><span class="line">    printf(&quot;%lf&quot;,m);    </span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>不会有警告或者报错，但是运行完以后会出现这样的值：-1.#IND00，不知所云。于是上网查了一下，原来是这样！</p>
+<h3 id="特殊浮点数的含义"><a href="#特殊浮点数的含义" class="headerlink" title="特殊浮点数的含义"></a>特殊浮点数的含义</h3><p>1.#INF / inf：这个值表示“无穷大 (infinity 的缩写)”，即超出了计算机可以表示的浮点数的最大范围（或者说超过了 double 类型的最大值）。<br>例如，当用 0 除一个整数时便会得到一个1.#INF / inf值；相应的，如果用 0 除一个负整数也会得到 -1.#INF / -inf 值。    -1.#IND / nan：这个的情况更复杂，一般来说，它们来自于任何未定义结果（非法）的浮点数运算。”IND”是 indeterminate 的缩写，而”nan”是 not a number 的缩写。产生这个值的常见例子有：对负数开平方，对负数取对数，0.0/0.0，0.0*∞, ∞/∞ 等。  简而言之，如果遇到 1.#INF / inf，就检查是否发生了运算结果溢出除零，而遇到 1.#IND / nan，就检查是否发生了非法的运算。     </p>
+<p>特殊浮点数的判断<br>很多 C 库都提供了一组函数用来判断一个浮点数是否是无穷大或 NaN。int _isnan(double x) 函数用来判断一个浮点数是否是 NaN，而 int _finite(double x) 用以判断一个浮点数是否是无穷大。</p>
+<p>你可能已经注意到了，上面两个函数都是以下划线开头的，因此在可移植性上可能是存在问题的，那么如何实现一个通用的判断版本呢？<br><strong>首先，对于 Nan，可以用下面的代码实现：</strong>   </p>
+<pre><code>bool IsNumber(double x) {  
+    return (x == x);
+}</code></pre><p>而下面的代码可以判断一个浮点数是否是有限的（finite, 即既不是 NaN 又不是 infinite）：  </p>
+<pre><code>bool IsFiniteNumber(double x) {
+    return (x &lt;= DBL_MAX &amp;&amp; x &gt;= -DBL_MAX);
+}</code></pre><p>其中，DBL_MAX 是 &lt;float.h&gt; 中预定义的常量。<br>把上面两个函数结合起来，还可以实现一个浮点数是否是 Inf 的判断。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/18/20200119/" data-id="ck5kb80yo0000dgva4j2cfxpe"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2019/12/31/2020/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

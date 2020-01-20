@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200120_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/20/20200120_1/" class="article-date">
+  <time datetime="2020-01-20T03:56:16.108Z" itemprop="datePublished">2020-01-20</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <blockquote>
+<p><strong>明日萧条醉尽醒，残花烂熳开何益。——杜甫</strong></p>
+</blockquote>
+<h4 id="笔记（一"><a href="#笔记（一" class="headerlink" title="笔记（一)"></a>笔记（一)</h4><h5 id="1-全排列函数next-permutation"><a href="#1-全排列函数next-permutation" class="headerlink" title="1.全排列函数next_permutation"></a>1.全排列函数next_permutation</h5><p>当当前序列不存在下一个排列时，函数返回false，否则返回true</p>
+<a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;  </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;  </span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;  </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"></span>&#123;  </span><br><span class="line">    <span class="keyword">int</span> num[<span class="number">3</span>]=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>&#125;;  </span><br><span class="line">    <span class="keyword">do</span>  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;num[<span class="number">0</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;num[<span class="number">1</span>]&lt;&lt;<span class="string">" "</span>&lt;&lt;num[<span class="number">2</span>]&lt;&lt;<span class="built_in">endl</span>;  </span><br><span class="line">    &#125;<span class="keyword">while</span>(next_permutation(num,num+<span class="number">3</span>));  </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-win-r-和-cmd-的一些用法"><a href="#2-win-r-和-cmd-的一些用法" class="headerlink" title="2.win+r 和 cmd 的一些用法"></a>2.win+r 和 cmd 的一些用法</h5><p>calc———–启动计算器<br>Clipbrd——–剪贴板查看器<br>notepad——–打开记事本<br>magnify——–放大镜实用程序<br>mspaint——–画图板<br>osk————打开屏幕键盘<br>taskmgr——–任务管理器<br>write———-写字板<br>psr.exe   步骤记录<br>title 标题名字 更改CMD窗口标题名字<br>more 文件名 逐屏显示输出文件<br>tree 以树形结构显示出目录，用参数-f 将列出第个文件夹中文件名称<br>type 文件名 显示文本文件的内容</p>
+<h5 id="3-chrome-小恐龙的作弊"><a href="#3-chrome-小恐龙的作弊" class="headerlink" title="3.chrome 小恐龙的作弊"></a>3.chrome 小恐龙的作弊</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Runner.instance_.playingIntro = <span class="literal">true</span>   障碍物关</span><br><span class="line">Runner.instance_.playingIntro = <span class="literal">false</span>  障碍物开</span><br><span class="line">Runner.instance_.gameOver = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;; 无视障碍</span><br><span class="line">Runner.instance_.setSpeed (<span class="number">100</span>);   设置速度，括号内数字可任意修改</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-std-ios-sync-with-stdio-false"><a href="#4-std-ios-sync-with-stdio-false" class="headerlink" title="4.std::ios::sync_with_stdio(false);"></a>4.std::ios::sync_with_stdio(false);</h5><p>决定C++标准streams(cin,cout,cerr…)是否与相应的C标准程序库文件(stdin,stdout,stderr)同步，也就是是否使用相同的stream缓冲区，缺省情况是同步的，但由于同步会带来某些不必要的负担，因此该函数作用就是我们自己可以取消同步<br>std::ios::sync_with_stdio(false);   </p>
+<h6 id="注意-必须在任何io操作之前取消同步"><a href="#注意-必须在任何io操作之前取消同步" class="headerlink" title="注意:必须在任何io操作之前取消同步"></a>注意:必须在任何io操作之前取消同步</h6><p>函数返回前一次被调用的参数值，如果未被调用过，返回true,反映标准stream的默认的值<br>cin，cout速度慢，是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而这段ios_base::sync_with_stdio(false)可以来打消iostream的输入输出缓存，可以节省许多时间，使效率与scanf与printf相差无几</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> C++为了让<span class="built_in">cin</span> <span class="built_in">cout</span>和<span class="built_in">scanf</span> <span class="built_in">printf</span> 同时使用时不产生混乱，所以c++用一个缓冲区来同步c的标准流，</span><br><span class="line">而<span class="built_in">std</span>::ios::sync_with_stdio(<span class="literal">false</span>)可以关闭这一个同步，让<span class="built_in">cin</span>和<span class="built_in">cout</span>不经过缓冲区；</span><br><span class="line"><span class="number">2.</span>tie()函数是把两个stream绑定到一起，flush()是把缓冲区的数据输出到文件，而<span class="built_in">cin</span>和<span class="built_in">cout</span>是默认绑定在一起的，</span><br><span class="line">每次使用都会调用flush()， 而<span class="built_in">cin</span>.tie(<span class="literal">nullptr</span>)可以解除这个绑定；</span><br><span class="line"><span class="number">3.</span><span class="built_in">cin</span>和<span class="built_in">cout</span>默认绑定在一起，是为了防止<span class="built_in">cin</span>出现在<span class="built_in">cout</span>之前，在绑定后，</span><br><span class="line">每次<span class="built_in">cin</span>都会先把缓冲区的数据刷新到输出文件中；</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/20/20200120_1/" data-id="ck5lx548u00037cvatqujpvqe"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/01/19/200119_2/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

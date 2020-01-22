@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200122_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/22/20200122_1/" class="article-date">
+  <time datetime="2020-01-22T12:50:53.902Z" itemprop="datePublished">2020-01-22</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h5 id="pygame-实现贪吃蛇（待优化）"><a href="#pygame-实现贪吃蛇（待优化）" class="headerlink" title="pygame 实现贪吃蛇（待优化）"></a>pygame 实现贪吃蛇（待优化）</h5><h5 id="今天一天啥都没学-😭-，把之前敲的贪吃蛇发出来纪念一下。"><a href="#今天一天啥都没学-😭-，把之前敲的贪吃蛇发出来纪念一下。" class="headerlink" title="今天一天啥都没学(😭)，把之前敲的贪吃蛇发出来纪念一下。"></a>今天一天啥都没学(😭)，把之前敲的贪吃蛇发出来纪念一下。</h5><a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">point</span>:</span></span><br><span class="line">    row = <span class="number">0</span></span><br><span class="line">    col = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,row,col)</span>:</span></span><br><span class="line">        self.row=row</span><br><span class="line">        self.col=col</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">copy</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> point(row=self.row,col=self.col)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pygame.init()</span><br><span class="line">W = <span class="number">800</span></span><br><span class="line">H = <span class="number">600</span></span><br><span class="line"></span><br><span class="line">ROW = <span class="number">30</span></span><br><span class="line">COL = <span class="number">40</span></span><br><span class="line">size = (W, H)</span><br><span class="line">window = pygame.display.set_mode(size)</span><br><span class="line">pygame.display.set_caption(<span class="string">"贪吃蛇"</span>)</span><br><span class="line">bg_color = (<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>)</span><br><span class="line">head = point(row=int(ROW/<span class="number">2</span>),col=int(COL/<span class="number">2</span>))</span><br><span class="line">head_color = (<span class="number">0</span>,<span class="number">128</span>,<span class="number">128</span>)</span><br><span class="line">snakes = [</span><br><span class="line">    point(row=head.row,col=head.col+<span class="number">1</span>),</span><br><span class="line">    point(row=head.row,col=head.col+<span class="number">2</span>),</span><br><span class="line">    point(row=head.row,col=head.col+<span class="number">3</span>)</span><br><span class="line">]</span><br><span class="line">snake_color=(<span class="number">128</span>,<span class="number">128</span>,<span class="number">128</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen_food</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        pos = point(row=random.randint(<span class="number">0</span>, ROW - <span class="number">1</span>), col=random.randint(<span class="number">0</span>, COL - <span class="number">1</span>))</span><br><span class="line">        is_coll = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">if</span> head.col == pos.col <span class="keyword">and</span> head.row == pos.row:</span><br><span class="line">            is_coll = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> snake <span class="keyword">in</span> snakes:</span><br><span class="line">            <span class="keyword">if</span> snake.col == pos.col <span class="keyword">and</span> snake.row == pos.row:</span><br><span class="line">                is_coll = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> is_coll:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">return</span> pos</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">food=gen_food()</span><br><span class="line">food_color=(<span class="number">255</span>,<span class="number">255</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">direct=<span class="string">'left'</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rect</span><span class="params">(point,color)</span>:</span></span><br><span class="line">    cell_width=W/COL</span><br><span class="line">    cell_height=H/ROW</span><br><span class="line">    left=point.col*cell_width</span><br><span class="line">    top=point.row*cell_height</span><br><span class="line">    pygame.draw.rect(window,color,(left,top,cell_width,cell_height))</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">quit = <span class="literal">True</span></span><br><span class="line">clock = pygame.time.Clock()</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> quit:</span><br><span class="line">    <span class="keyword">for</span> event <span class="keyword">in</span> pygame.event.get():</span><br><span class="line">        <span class="keyword">if</span> event.type==pygame.QUIT:</span><br><span class="line">            quit=<span class="literal">False</span></span><br><span class="line">        <span class="keyword">elif</span> event.type==pygame.KEYDOWN:</span><br><span class="line">            <span class="keyword">if</span> event.key==<span class="number">273</span> <span class="keyword">or</span> event.key==<span class="number">119</span>:</span><br><span class="line">                <span class="keyword">if</span> direct==<span class="string">'right'</span> <span class="keyword">or</span> direct==<span class="string">'left'</span>:</span><br><span class="line">                    direct=<span class="string">'up'</span></span><br><span class="line">            <span class="keyword">elif</span> event.key==<span class="number">274</span> <span class="keyword">or</span> event.key==<span class="number">115</span>:</span><br><span class="line">                <span class="keyword">if</span> direct==<span class="string">'right'</span> <span class="keyword">or</span> direct==<span class="string">'left'</span>:</span><br><span class="line">                    direct=<span class="string">'down'</span></span><br><span class="line">            <span class="keyword">elif</span> event.key==<span class="number">276</span> <span class="keyword">or</span> event.key==<span class="number">97</span>:</span><br><span class="line">                <span class="keyword">if</span> direct==<span class="string">'up'</span> <span class="keyword">or</span> direct==<span class="string">'down'</span>:</span><br><span class="line">                    direct=<span class="string">'left'</span></span><br><span class="line">            <span class="keyword">elif</span> event.key==<span class="number">275</span> <span class="keyword">or</span> event.key==<span class="number">100</span>:</span><br><span class="line">                <span class="keyword">if</span> direct == <span class="string">'up'</span> <span class="keyword">or</span> direct == <span class="string">'down'</span>:</span><br><span class="line">                    direct=<span class="string">'right'</span></span><br><span class="line"></span><br><span class="line">    eat=(head.col==food.col <span class="keyword">and</span> head.row==food.row)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> eat:</span><br><span class="line">        food = gen_food()</span><br><span class="line">    snakes.insert(<span class="number">0</span>,head.copy())</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> eat:</span><br><span class="line">        snakes.pop()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> direct==<span class="string">'left'</span>:</span><br><span class="line">        head.col-=<span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> direct==<span class="string">'right'</span>:</span><br><span class="line">        head.col+=<span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> direct==<span class="string">'up'</span>:</span><br><span class="line">        head.row-=<span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> direct==<span class="string">'down'</span>:</span><br><span class="line">        head.row+=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    dead=<span class="literal">False</span></span><br><span class="line">    <span class="keyword">if</span> head.col&lt;<span class="number">0</span> <span class="keyword">or</span> head.row&lt;<span class="number">0</span> <span class="keyword">or</span> head.row&gt;=ROW <span class="keyword">or</span> head.col&gt;=COL:</span><br><span class="line">        dead=<span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> snake <span class="keyword">in</span> snakes:</span><br><span class="line">        <span class="keyword">if</span> head.col==snake.col <span class="keyword">and</span> head.row==snake.row:</span><br><span class="line">            dead=<span class="literal">True</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> dead:</span><br><span class="line">        quit=<span class="literal">False</span></span><br><span class="line">    pygame.draw.rect(window,bg_color,(<span class="number">0</span>,<span class="number">0</span>,W,H))</span><br><span class="line">    <span class="keyword">for</span> snake <span class="keyword">in</span> snakes:</span><br><span class="line">        rect(snake,snake_color)</span><br><span class="line">    rect(head,head_color)</span><br><span class="line">    rect(food,food_color)</span><br><span class="line">    pygame.display.flip()</span><br><span class="line">    clock.tick(<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/22/20200122_1/" data-id="ck5pb5ubf0002d0vat7b6n7iq"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/01/21/200121/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

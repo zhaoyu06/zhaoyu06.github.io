@@ -21,30 +21,71 @@
 </html>
 <body>
 <main class="content">
-  <section class="outer">
-  
+  <section class="jumbotron">
+  <div class="video">
+    
+      <div class="video-frame">
+        <img src="/images/ocean/overlay-hero.png" alt="Decorative image frame">
+      </div>
+    
+    <div class="video-media">
+      <video playsinline="" autoplay="" loop="" muted="" data-autoplay=""
+             poster="/images/ocean/ocean.png" x5-video-player-type="h5">
+        <source src="/images/ocean/ocean.mp4" type="video/mp4">
+        <source src="/images/ocean/ocean.ogv" type="video/ogg">
+        <source src="/images/ocean/ocean.webm" type="video/webm">
+        <p>Your user agent does not support the HTML5 Video element.</p>
+      </video>
+      <div class="video-overlay"></div>
+    </div>
+    <div class="video-inner text-center text-white">
+      <h1><a href="/">zyu</a></h1>
+      <p>Don&#39;t follow your passion, but always bring it with you.</p>
+      <div><img src="/images/hexo-inverted.svg" class="brand" alt="zyu"></div>
+    </div>
+    <div class="video-learn-more">
+      <a class="anchor" href="#landingpage"><i class="fe fe-mouse"></i></a>
+    </div>
+  </div>
+</section>
 
-<article id="post-200121" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+<div id="landingpage">
+  <section class="outer">
+  <article class="articles">
+    
+    <h1 class="page-type-title"></h1>
+
+    
+      
+        
+
+<article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
   
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2019/09/18/hello-world/">Hello World</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
     
 
     
       <div class="article-meta">
-        <a href="/2020/01/21/200121/" class="article-date">
-  <time datetime="2020-01-21T04:06:53.423Z" itemprop="datePublished">2020-01-21</time>
+        <a href="/2019/09/18/hello-world/" class="article-date">
+  <time datetime="2019-09-18T02:42:26.546Z" itemprop="datePublished">2019-09-18</time>
 </a>
         
       </div>
     
-
-    
-      
-    <div class="tocbot"></div>
-
-
-
-
 
     
 
@@ -55,24 +96,14 @@
       
 
       
-        <blockquote>
-<p> <strong>少年安得长少年，海波尚变为桑田。——李贺</strong></p>
-</blockquote>
-<h5 id="取整方法总结"><a href="#取整方法总结" class="headerlink" title="取整方法总结"></a>取整方法总结</h5><a id="more"></a>
-<p>1.直接赋值给整数变量<br>    int i = 3.5; 或 i = (int) 3.5;<br>2.整数除法运算符‘ / ’取整<br>    ‘ / ’本身就有取整功能(int / int)，可是整数除法对负数的取整结果和使用的C编译器有关。<br>3.使用floor函数<br>    floor(x)返回的是小于或等于x的最大整数。<br>如：<br><code>floor(3.5) = 3</code><br><code>floor(-3.5) = -4</code><br>    4、使用ceil函数<br>    ceil(x)返回的是大于x的最小整数。如：</p>
-<pre><code>ceil(3.5) = 4
-
-ceil(-3.5) = -3
-
-floor()是向负无穷大舍入，floor(-3.5)  = -4。
-
-ceil()是向正无穷大舍入。ceil(-3.5)  = -3。
-
-可是在C里面ceil和floor()函数是返回double型。</code></pre>
+        <p>This is my first blog.</p>
+        
+          <a class="article-more-link" href="/2019/09/18/hello-world/">Read More...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/21/200121/" data-id="ck5tcdwq800064kvavxfkqkzo"
+      <a data-url="http://yoursite.com/2019/09/18/hello-world/" data-id="ck5tcdwq300034kvaqdpx0sgu"
          class="article-share-link">Share</a>
       
     </footer>
@@ -80,38 +111,26 @@ ceil()是向正无穷大舍入。ceil(-3.5)  = -3。
   </div>
 
   
-    
-  <nav class="article-nav">
-    
-      <a href="/2020/01/22/20200122_1/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            (no title)
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/01/20/20200120_1/" class="article-nav-link">
-        <strong class="article-nav-caption">Olde posts</strong>
-        <div class="article-nav-title"></div>
-      </a>
-    
-  </nav>
 
-
-  
-
-  
-    
   
 
 </article>
 
 
 
+      
+  </article>
+  
+
+  
+    <nav class="page-nav">
+      
+      <a class="extend prev" rel="prev" href="/">Prev page</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </nav>
+  
 </section>
+</div>
+
   <footer class="footer">
   <div class="outer">
     <div class="float-right">
@@ -133,8 +152,8 @@ ceil()是向正无穷大舍入。ceil(-3.5)  = -3。
 
 </main>
 
-<aside class="sidebar sidebar-specter">
-  
+  <aside class="sidebar">
+    
     <button class="navbar-toggle"></button>
 <nav class="navbar">
   
@@ -199,21 +218,6 @@ ceil()是向正无穷大舍入。ceil(-3.5)  = -3。
   <script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
-
-  <script src="/js/tocbot.min.js"></script>
-  <script>
-    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
-    tocbot.init({
-      tocSelector: '.tocbot',
-      contentSelector: '.article-entry',
-      headingSelector: 'h1, h2, h3, h4, h5, h6',
-      hasInnerContainers: true,
-      scrollSmooth: true,
-      positionFixedSelector: '.tocbot',
-      positionFixedClass: 'is-position-fixed',
-      fixedSidebarOffset: 'auto',
-    });
-  </script>
 
 
 <script src="/js/ocean.js"></script>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200125_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/25/20200125_1/" class="article-date">
+  <time datetime="2020-01-25T08:58:19.699Z" itemprop="datePublished">2020-01-25</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h2 id="Java-super关键字"><a href="#Java-super关键字" class="headerlink" title="Java super关键字"></a>Java super关键字</h2><a id="more"></a>
+<p>java中的<code>super</code>关键字是一个引用变量，用于引用直接父类对象。</p>
+<p>每当创建子类的实例时，父类的实例被隐式创建，由<code>super</code>关键字引用变量引用。</p>
+<p>java <code>super</code>关键字的用法如下：</p>
+<ul>
+<li><code>super</code>可以用来引用直接父类的实例变量。</li>
+<li><code>super</code>可以用来调用直接父类方法。</li>
+<li><code>super()</code>可以用于调用直接父类构造函数。</li>
+</ul>
+<h2 id="1-super用于引用直接父类实例变量"><a href="#1-super用于引用直接父类实例变量" class="headerlink" title="1. super用于引用直接父类实例变量"></a>1. super用于引用直接父类实例变量</h2><p>可以使用<code>super</code>关键字来访问父类的数据成员或字段。 如果父类和子类具有相同的字段，则使用<code>super</code>来指定为父类数据成员或字段。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    String color = <span class="string">"white"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>&#123;</span><br><span class="line">    String color = <span class="string">"black"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">printColor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(color);</span><br><span class="line">        System.out.println(<span class="keyword">super</span>.color);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TestSuper1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>&#123;</span><br><span class="line">        Dog d = <span class="keyword">new</span> Dog();</span><br><span class="line">        d.printColor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>执行上面代码，输出结果如下 -</p>
+<pre><code>black
+white</code></pre><p>在上面的例子中，<code>Animal</code>和<code>Dog</code>都有一个共同的属性：<code>color</code>。 如果我们打印<code>color</code>属性，它将默认打印当前类的颜色。 要访问父属性，需要使用<code>super</code>关键字指定。</p>
+<h2 id="2-通过-super-来调用父类方法"><a href="#2-通过-super-来调用父类方法" class="headerlink" title="2. 通过 super 来调用父类方法"></a>2. 通过 super 来调用父类方法</h2><p><code>super</code>关键字也可以用于调用父类方法。 如果子类包含与父类相同的方法，则应使用<code>super</code>关键字指定父类的方法。 换句话说，如果方法被覆盖就可以使用 <code>super</code> 关键字来指定父类方法。</p>
+<pre><code class="java"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>{
+    <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>{
+        System.out.println(<span class="string">"eating..."</span>);
+    }
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>{
+    <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>{
+        System.out.println(<span class="string">"eating bread..."</span>);
+    }
+
+    <span class="function"><span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>{
+        System.out.println(<span class="string">"barking..."</span>);
+    }
+
+    <span class="function"><span class="keyword">void</span> <span class="title">work</span><span class="params">()</span> </span>{
+        <span class="keyword">super</span>.eat();
+        bark();
+    }
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">TestSuper2</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>{
+        Dog d = <span class="keyword">new</span> Dog();
+        d.work();
+    }
+}</code></pre>
+<p>执行上面代码，输出结果如下 -</p>
+<pre><code>eating...
+barking...</code></pre><p>在上面的例子中，<code>Animal</code>和<code>Dog</code>两个类都有<code>eat()</code>方法，如果要调用<code>Dog</code>类中的<code>eat()</code>方法，它将默认调用<code>Dog</code>类的<code>eat()</code>方法，因为当前类的优先级比父类的高。<br>所以要调用父类方法，需要使用<code>super</code>关键字指定。</p>
+<h2 id="3-使用-super-来调用父类构造函数"><a href="#3-使用-super-来调用父类构造函数" class="headerlink" title="3. 使用 super 来调用父类构造函数"></a>3. 使用 super 来调用父类构造函数</h2><p><code>super</code>关键字也可以用于调用父类构造函数。下面来看一个简单的例子：</p>
+<pre><code class="java"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>{
+    Animal() {
+        System.out.println(<span class="string">"animal is created"</span>);
+    }
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>{
+    Dog() {
+        <span class="keyword">super</span>();
+        System.out.println(<span class="string">"dog is created"</span>);
+    }
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">TestSuper3</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>{
+        Dog d = <span class="keyword">new</span> Dog();
+    }
+}</code></pre>
+<blockquote>
+<p>注意：如果没有使用<code>super()</code>或<code>this()</code>，则<code>super()</code>在每个类构造函数中由编译器自动添加。</p>
+</blockquote>
+<p>如果没有构造函数，编译器会自动提供默认构造函数。 但是，它还添加了<code>super()</code>作为第一个语句。</p>
+<p>下面是<code>super</code>关键字的另一个例子，这里<code>super()</code>由编译器隐式提供。</p>
+<pre><code class="java"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span> </span>{
+    Animal() {
+        System.out.println(<span class="string">"animal is created"</span>);
+    }
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="keyword">extends</span> <span class="title">Animal</span> </span>{
+    Dog() {
+        System.out.println(<span class="string">"dog is created"</span>);
+    }
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">TestSuper4</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span> </span>{
+        Dog d = <span class="keyword">new</span> Dog();
+    }
+}</code></pre>
+<p>执行上面代码，输出结果如下 -</p>
+<pre><code>animal is created
+dog is created</code></pre><h2 id="super实际使用示例"><a href="#super实际使用示例" class="headerlink" title="super实际使用示例"></a>super实际使用示例</h2><p>下面来看看<code>super</code>关键字的实际用法。 在这里，<code>Emp</code>类继承了<code>Person</code>类，所以<code>Person</code>的所有属性都将默认继承到<code>Emp</code>。 要初始化所有的属性，可使用子类的父类构造函数。 这样，我们重用了父类的构造函数。</p>
+<pre><code class="java"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>{
+    <span class="keyword">int</span> id;
+    String name;
+
+    Person(<span class="keyword">int</span> id, String name) {
+        <span class="keyword">this</span>.id = id;
+        <span class="keyword">this</span>.name = name;
+    }
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">Emp</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>{
+    <span class="keyword">float</span> salary;
+
+    Emp(<span class="keyword">int</span> id, String name, <span class="keyword">float</span> salary) {
+        <span class="keyword">super</span>(id, name);
+        <span class="keyword">this</span>.salary = salary;
+    }
+
+    <span class="function"><span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>{
+        System.out.println(id + <span class="string">" "</span> + name + <span class="string">" "</span> + salary);
+    }
+}
+
+<span class="class"><span class="keyword">class</span> <span class="title">TestSuper5</span> </span>{
+    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
+        Emp e1 = <span class="keyword">new</span> Emp(<span class="number">1</span>, <span class="string">"ankit"</span>, <span class="number">45000f</span>);
+        e1.display();
+    }
+}</code></pre>
+<p>执行上面代码，输出结果如下 -</p>
+<pre><code>1 ankit 45000</code></pre><blockquote>
+<p><strong>我可以接受失败，但绝对不能接受未奋斗过的自己。</strong></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/25/20200125_1/" data-id="ck5td3h790000vova5ki4ylgt"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/01/24/20200124_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

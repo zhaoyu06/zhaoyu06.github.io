@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    爬取网易云音乐热评 |
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200129_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      爬取网易云音乐热评
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/01/29/20200129_1/" class="article-date">
+  <time datetime="2020-01-29T06:18:14.427Z" itemprop="datePublished">2020-01-29</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <p>关键点获取包含评论数据包的url，以及 json 格式数据的解析</p>
+<a id="more"></a>
+<p>1.url <a href="http://music.163.com/#/song?id=1400256289" target="_blank" rel="noopener">http://music.163.com/#/song?id=1400256289</a> 后面的id应该表示歌曲的id<br>2.返回包含评论的响应正文的链接为<a href="https://music.163.com/weapi/v1/resource/comments/R_SO_4_1400256289?csrf_token=" target="_blank" rel="noopener">https://music.163.com/weapi/v1/resource/comments/R_SO_4_1400256289?csrf_token=</a> 并且链接中R_SO_4_后面的数字，可以看出就是这首歌曲的id</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gethtml</span><span class="params">(url)</span>:</span></span><br><span class="line">          headers=&#123;<span class="string">'user-agent'</span>:<span class="string">'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36'</span>&#125;</span><br><span class="line">          data=&#123;<span class="string">'params'</span>:<span class="string">'PpL4wvoneyhqnTJwud+QlazBNSrXmggfrFIGuX4unwz0GIIHcGs2hgwgHeveoFmQow5D9u9rFBEMuF14uMiHUqJjI4b852HwFr/eqXdYFVla3cXjc8XfgmOAEO6UvGB0i8uGbdv9WiQSE10zv22Jv0FrSCuQUb7np4YXOwuEi7MJRTQoIELCroQ5/qF/wUrW'</span>,<span class="string">'encSecKey'</span>: <span class="string">'d2206fc4b19048646a1afe71e34115968504b7f99c846613b4d92d43864e410cd9930844e6a1b3460aa436c4869b5cd46abb2826daef959947bf55ce0990b4f3465cb61f7e04a46d8863ec42c2ba4df6d1c22c44915010d26e63442e0c300111e7c868ae3ea1a98babcd09da9817c912823fd3a8240d6da9746c97883f9513d9'</span>&#125;</span><br><span class="line">          r=requests.post(url,headers=headers,data=data)</span><br><span class="line">          <span class="keyword">return</span> r.text</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url=<span class="string">'https://music.163.com/weapi/v1/resource/comments/R_SO_4_1400256289?csrf_token='</span></span><br><span class="line">r=gethtml(url)</span><br><span class="line">comment=json.loads(r)</span><br><span class="line">hotcomment=comment[<span class="string">'hotComments'</span>]</span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'D:/123.txt,'</span>w<span class="string">',encoding='</span>utf<span class="number">-8</span><span class="string">') as f:</span></span><br><span class="line"><span class="string">          for each in hotcomment:</span></span><br><span class="line"><span class="string">                    f.write(each['</span>use<span class="string">r']['</span>nickname<span class="string">']+'</span>:\n\n<span class="string">')</span></span><br><span class="line"><span class="string">                    f.write(each['</span>content<span class="string">']+'</span>\n<span class="string">')</span></span><br><span class="line"><span class="string">                    f.write('</span>--------------------------------------\n<span class="string">')</span></span><br></pre></td></tr></table></figure>
+
+<p>代码运行结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">是阿冗的冗:</span><br><span class="line"></span><br><span class="line">我在这等大家好久了[爱心]    希望大家都能找到自己心中的答案。</span><br><span class="line">--------------------------------------</span><br><span class="line">宴栓:</span><br><span class="line"></span><br><span class="line">“真正想给你的从来都不会问你要不要”</span><br><span class="line">--------------------------------------</span><br><span class="line">_权全圈:</span><br><span class="line"></span><br><span class="line">“问你想不想要的时候最好说不要”</span><br><span class="line">--------------------------------------</span><br><span class="line">鱼刺猪:</span><br><span class="line"></span><br><span class="line">沉默就是答案 闪躲就是答案 </span><br><span class="line">不再主动就是答案 你早该明白了</span><br><span class="line">--------------------------------------</span><br><span class="line">很多很多故事:</span><br><span class="line"></span><br><span class="line">万般皆苦，唯有自渡。</span><br><span class="line">--------------------------------------</span><br><span class="line">偷偷的叹了口气:</span><br><span class="line"></span><br><span class="line">生活总是让我们遍体鳞伤，但到后来，那些受伤的地方一定会变成我们最强壮的地方。</span><br><span class="line">--------------------------------------</span><br><span class="line">泷泽萝拉老师:</span><br><span class="line"></span><br><span class="line">有时候他迟迟不回复你  聪明的你也该知道这是他的答案了</span><br><span class="line">--------------------------------------</span><br><span class="line">长青社:</span><br><span class="line"></span><br><span class="line">“</span><br><span class="line">一个年轻人，如果太过老练、太过稳重，而失去了朝气，那他就不算是一个年轻人.      ”</span><br><span class="line">--------------------------------------</span><br><span class="line">微凉丶徒亦难:</span><br><span class="line"></span><br><span class="line">每个人都会有一段异常艰难的时光，生活的窘迫，工作的失意，学业的压力，爱的惶惶不可终日。挺过来的，人生就会豁然开朗，挺不过来的，时间也会教会你怎么与它们握手言和，所以你都不必害怕的。🏃</span><br><span class="line">--------------------------------------</span><br><span class="line">腿叉开:</span><br><span class="line"></span><br><span class="line">十月间夜里起风的秋 像是一场无声的告别</span><br><span class="line">--------------------------------------</span><br><span class="line">任易安:</span><br><span class="line"></span><br><span class="line">如果能拥抱自己 你又怎么会孤独</span><br><span class="line">--------------------------------------</span><br><span class="line">万物不及姑娘你:</span><br><span class="line"></span><br><span class="line">希望你眼睛里的星光闪耀是我</span><br><span class="line">希望十一月能得到我心里想要的那个答案</span><br><span class="line">--------------------------------------</span><br><span class="line">一只猫咪的故事:</span><br><span class="line"></span><br><span class="line">遇到对的就是答案 ，遇到不好的就是经历。                                                             可惜我从来没有遇到过，时间可以证明这一点   但我会好好生活 也会追求自己喜欢的东西，我一直在等着............[鬼脸]</span><br><span class="line">--------------------------------------</span><br><span class="line">瑾汐很甜:</span><br><span class="line"></span><br><span class="line">我也还在路上</span><br><span class="line"></span><br><span class="line">没有人能诉说</span><br><span class="line"></span><br><span class="line">也许我只能沉默</span><br><span class="line"></span><br><span class="line">眼泪湿润眼眶.</span><br><span class="line">--------------------------------------</span><br><span class="line">阳光明媚大男孩:</span><br><span class="line"></span><br><span class="line">问题在问题提出的维度永远没有答案，但是我却还在这个维度回答你，而且这往往让我永远失去你，因为答案不重要，是否跟你在一起也不重要。</span><br><span class="line"></span><br><span class="line">但是你很重要，告诉你，你很重要这件事很重要。在你未来人生中无论遭遇什么低谷，能想起有个人曾经让你知道你很重要，这件事很重要！</span><br><span class="line">--------------------------------------</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/01/29/20200129_1/" data-id="ck5yx9fln00001svay0p5l5kv"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/01/29/20200129_2/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/01/28/20200128_2/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200201_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/01/20200201_1/" class="article-date">
+  <time datetime="2020-02-01T03:41:12.988Z" itemprop="datePublished">2020-02-01</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <hr>
+<h2 id="Java-String、StringBuffer和StringBuilder及蔡勒公式"><a href="#Java-String、StringBuffer和StringBuilder及蔡勒公式" class="headerlink" title="Java String、StringBuffer和StringBuilder及蔡勒公式"></a>Java String、StringBuffer和StringBuilder及蔡勒公式</h2><blockquote>
+<p><strong>去见你想见的人，去做你想做的事，趁阳光正好，趁微风不噪，趁你未老</strong></p>
+</blockquote>
+<a id="more"></a>
+<p><strong>String</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">charAt</span><span class="params">(<span class="keyword">int</span> index)</span>返回指定索引处的 <span class="keyword">char</span> 值。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Object o)</span>把这个字符串和另一个对象比较。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(String anotherString)</span>按字典顺序比较两个字符串。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">compareToIgnoreCase</span><span class="params">(String str)</span>按字典顺序比较两个字符串，不考虑大小写。</span></span><br><span class="line"><span class="function">String <span class="title">concat</span><span class="params">(String str)</span>将指定字符串连接到此字符串的结尾。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">contentEquals</span><span class="params">(StringBuffer sb)</span>当且仅当字符串与指定的StringBuffer有相同顺序的字符时候返回真。</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> String <span class="title">copyValueOf</span><span class="params">(<span class="keyword">char</span>[] data)</span>返回指定数组中表示该字符序列的 String。</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> String <span class="title">copyValueOf</span><span class="params">(<span class="keyword">char</span>[] data, <span class="keyword">int</span> offset, <span class="keyword">int</span> count)</span>返回指定数组中表示该字符序列的 String。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">endsWith</span><span class="params">(String suffix)</span>测试此字符串是否以指定的后缀结束。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object anObject)</span>将此字符串与指定的对象比较。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">equalsIgnoreCase</span><span class="params">(String anotherString)</span>将此 String 与另一个 String 比较，不考虑大小写。</span></span><br><span class="line"><span class="function"><span class="keyword">byte</span>[] <span class="title">getBytes</span><span class="params">()</span>使用平台的默认字符集将此 String 编码为 <span class="keyword">byte</span> 序列，并将结果存储到一个新的 <span class="keyword">byte</span> 数组中。</span></span><br><span class="line"><span class="function"><span class="keyword">byte</span>[] <span class="title">getBytes</span><span class="params">(String charsetName)</span>使用指定的字符集将此 String 编码为 <span class="keyword">byte</span> 序列，并将结果存储到一个新的 <span class="keyword">byte</span> 数组中。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getChars</span><span class="params">(<span class="keyword">int</span> srcBegin, <span class="keyword">int</span> srcEnd, <span class="keyword">char</span>[] dst, <span class="keyword">int</span> dstBegin)</span>将字符从此字符串复制到目标字符数组。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span>返回此字符串的哈希码。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(<span class="keyword">int</span> ch)</span>返回指定字符在此字符串中第一次出现处的索引。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(<span class="keyword">int</span> ch, <span class="keyword">int</span> fromIndex)</span>返回在此字符串中第一次出现指定字符处的索引，从指定的索引开始搜索。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str)</span>返回指定子字符串在此字符串中第一次出现处的索引。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str, <span class="keyword">int</span> fromIndex)</span>返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引开始。</span></span><br><span class="line"><span class="function">String <span class="title">intern</span><span class="params">()</span>返回字符串对象的规范化表示形式。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(<span class="keyword">int</span> ch)</span>返回指定字符在此字符串中最后一次出现处的索引。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(<span class="keyword">int</span> ch, <span class="keyword">int</span> fromIndex)</span>返回指定字符在此字符串中最后一次出现处的索引，从指定的索引处开始进行反向搜索。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str)</span>返回指定子字符串在此字符串中最右边出现处的索引。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str, intfromIndex)</span>返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">length</span><span class="params">()</span>返回此字符串的长度。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">matches</span><span class="params">(String regex)</span>告知此字符串是否匹配给定的正则表达式。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">regionMatches</span><span class="params">(booleanignoreCase,inttoffset,Stringother,intooffset,intlen)</span>测试两个字符串区域是否相等	</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">regionMatches</span><span class="params">(<span class="keyword">int</span> toffset, String other, <span class="keyword">int</span> ooffset, <span class="keyword">int</span> len)</span>测试两个字符串区域是否相等。</span></span><br><span class="line"><span class="function">String <span class="title">replace</span><span class="params">(<span class="keyword">char</span> oldChar, <span class="keyword">char</span> newChar)</span>返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有oldChar 得到的。</span></span><br><span class="line"><span class="function">String <span class="title">replaceAll</span><span class="params">(String regex,Stringreplacement)</span>使用给定的replacement替换此字符串所有匹配给定的正则表达式的子字符串。</span></span><br><span class="line"><span class="function">String <span class="title">replaceFirst</span><span class="params">(String regex, String replacement)</span>使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。</span></span><br><span class="line"><span class="function">String[] <span class="title">split</span><span class="params">(String regex)</span>根据给定正则表达式的匹配拆分此字符串。</span></span><br><span class="line"><span class="function">String[] <span class="title">split</span><span class="params">(String regex, <span class="keyword">int</span> limit)</span>根据匹配给定的正则表达式来拆分此字符串。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">startsWith</span><span class="params">(String prefix)</span>测试此字符串是否以指定的前缀开始。</span></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">startsWith</span><span class="params">(String prefix, <span class="keyword">int</span> toffset)</span>测试此字符串从指定索引开始的子字符串是否以指定前缀开始。</span></span><br><span class="line"><span class="function">CharSequence <span class="title">subSequence</span><span class="params">(<span class="keyword">int</span> beginIndex, <span class="keyword">int</span> endIndex)</span>返回一个新的字符序列，它是此序列的一个子序列。</span></span><br><span class="line"><span class="function">String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> beginIndex)</span>返回一个新的字符串，它是此字符串的一个子字符串。</span></span><br><span class="line"><span class="function">String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> beginIndex, <span class="keyword">int</span> endIndex)</span>返回一个新字符串，它是此字符串的一个子字符串。</span></span><br><span class="line"><span class="function"><span class="keyword">char</span>[] <span class="title">toCharArray</span><span class="params">()</span>将此字符串转换为一个新的字符数组。</span></span><br><span class="line"><span class="function">String <span class="title">toLowerCase</span><span class="params">()</span>使用默认语言环境的规则将此 String 中的所有字符都转换为小写。</span></span><br><span class="line"><span class="function">String <span class="title">toLowerCase</span><span class="params">(Locale locale)</span>使用给定 Locale 的规则将此 String 中的所有字符都转换为小写。</span></span><br><span class="line"><span class="function">String <span class="title">toString</span><span class="params">()</span>返回此对象本身（它已经是一个字符串！）。</span></span><br><span class="line"><span class="function">String <span class="title">toUpperCase</span><span class="params">()</span>使用默认语言环境的规则将此 String 中的所有字符都转换为大写。</span></span><br><span class="line"><span class="function">String <span class="title">toUpperCase</span><span class="params">(Locale locale)</span>使用给定 Locale 的规则将此 String 中的所有字符都转换为大写。</span></span><br><span class="line"><span class="function">String <span class="title">trim</span><span class="params">()</span>返回字符串的副本，忽略前导空白和尾部空白。</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> String <span class="title">valueOf</span><span class="params">(primitive data type x)</span>返回给定data type类型x参数的字符串表示形式。</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>StringBuffer和StringBuilder</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> StringBuffer <span class="title">append</span><span class="params">(String s)</span>将指定的字符串追加到此字符序列。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> StringBuffer <span class="title">reverse</span><span class="params">()</span>将此字符序列用其反转形式取代。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">delete</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span>移除此序列的子字符串中的字符。</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> offset, <span class="keyword">int</span> i)</span>将 <span class="keyword">int</span> 参数的字符串表示形式插入此序列中。</span></span><br><span class="line"><span class="function"><span class="title">replace</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end, String str)</span>使用给定 String 中的字符替换此序列的子字符串中的字符。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">capacity</span><span class="params">()</span>返回当前容量。</span></span><br><span class="line"><span class="function"><span class="keyword">char</span> <span class="title">charAt</span><span class="params">(<span class="keyword">int</span> index)</span>返回此序列中指定索引处的 <span class="keyword">char</span> 值。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ensureCapacity</span><span class="params">(<span class="keyword">int</span> minimumCapacity)</span>确保容量至少等于指定的最小值。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">getChars</span><span class="params">(<span class="keyword">int</span> srcBegin, <span class="keyword">int</span> srcEnd, <span class="keyword">char</span>[] dst, <span class="keyword">int</span> dstBegin)</span>将字符从此序列复制到目标字符数组 dst。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str)</span>返回第一次出现的指定子字符串在该字符串中的索引。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">indexOf</span><span class="params">(String str, <span class="keyword">int</span> fromIndex)</span>从指定的索引处开始，返回第一次出现的指定子字符串在该字符串中的索引。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str)</span>返回最右边出现的指定子字符串在此字符串中的索引。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lastIndexOf</span><span class="params">(String str, <span class="keyword">int</span> fromIndex)</span>返回 String 对象中子字符串最后出现的位置。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">length</span><span class="params">()</span>返回长度（字符数）。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setCharAt</span><span class="params">(<span class="keyword">int</span> index, <span class="keyword">char</span> ch)</span>将给定索引处的字符设置为 ch。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setLength</span><span class="params">(<span class="keyword">int</span> newLength)</span>设置字符序列的长度。</span></span><br><span class="line"><span class="function">CharSequence <span class="title">subSequence</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span>返回一个新的字符序列，该字符序列是此序列的子序列。</span></span><br><span class="line"><span class="function">String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> start)</span>返回一个新的 String，它包含此字符序列当前所包含的字符子序列。</span></span><br><span class="line"><span class="function">String <span class="title">substring</span><span class="params">(<span class="keyword">int</span> start, <span class="keyword">int</span> end)</span>返回一个新的 String，它包含此序列当前所包含的字符子序列。</span></span><br><span class="line"><span class="function">String <span class="title">toString</span><span class="params">()</span>返回此序列中数据的字符串表示形式。</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>蔡勒公式（Zeller’s congruence），是一种计算任何一日属一星期中哪一日的算法，由德国数学家克里斯提安·蔡勒推算出来。</p>
+</blockquote>
+<h1 id="蔡勒公式"><a href="#蔡勒公式" class="headerlink" title="蔡勒公式"></a>蔡勒公式</h1><p><strong>蔡勒公式</strong>（Zeller’s congruence），是一种计算任何一日属一星期中哪一日的<a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/wiki/%E6%BC%94%E7%AE%97%E6%B3%95" title="算法" target="_blank" rel="noopener">算法</a>，由德国数学家<a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/w/index.php?title=%E5%85%8B%E9%87%8C%E6%96%AF%E6%8F%90%E5%AE%89%C2%B7%E8%94%A1%E5%8B%92&action=edit&redlink=1" target="_blank" rel="noopener">克里斯提安·蔡勒</a>推算出来。</p>
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c65e11cd656b95b753e220dbec1d7441d572aa7e" alt="{\displaystyle w=\left(y+\left[{\frac {y}{4}}\right]+\left[{\frac {c}{4}}\right]-2c+\left[{\frac {26(m+1)}{10}}\right]+d-1\right){\bmod {7}}}"></p>
+<p>or</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/b671ee256387a51343ba0c42524286a25ece7a41" alt="{\displaystyle w=\left(y+\left[{\frac {y}{4}}\right]+\left[{\frac {c}{4}}\right]-2c+2m+\left[{\frac {3(m+1)}{5}}\right]+d+1\right){\bmod {7}}}"></p>
+<p>公式都是基于<a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/wiki/%E5%85%AC%E6%9B%86" title="公历" target="_blank" rel="noopener">公历</a>的置闰规则来考虑。</p>
+<p>公式中的符号含义如下：</p>
+<ul>
+<li>w：星期（计算所得的数值对应的星期：0-星期日；1-星期一；2-星期二；3-星期三；4-星期四；5-星期五；6-星期六）<a href="#cite_note-1">[注 1]</a></li>
+<li>c：年份前两位数</li>
+<li>y：年份后两位数</li>
+<li>m：月（m的取值范围为3至14，即在蔡勒公式中，某年的1、2月要看作上一年的13、14月来计算，比如2003年1月1日要看作2002年的13月1日来计算）</li>
+<li>d：日</li>
+<li>[　]：称作<a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/wiki/%E9%AB%98%E6%96%AF%E7%AC%A6%E8%99%9F" title="高斯符号" target="_blank" rel="noopener">高斯符号</a>，代表向下取整，即，取不大于原数的最大整数。</li>
+<li>mod：<a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/wiki/%E5%90%8C%E9%A4%98" title="同余" target="_blank" rel="noopener">同余</a>（这里代表括号里的答案除以7后的余数）</li>
+</ul>
+<p>因为</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ef0155b030f4fd748b232f8ed30882359bf00611" alt="\left(y+[{\frac  {y}{4}}]+[{\frac  {c}{4}}]-2c+[{\frac  {26(m+1)}{10}}]+d-1\right)"></p>
+<p>可能为负数，所以当出现负数的情况下不能直接mod 7。编写成代码的时候如果两个操作数中只有一个负数，求模的结果取决于机器，也就是说某些情况下w在一些机器上为负数，但是在某一些机器上w不一定为负数（例如：21%-5的结果取决于机器，可能得到1或-4），对于产生负数这种情况可将原来公式分为两步：</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/f9b1b601ac3b2039d636f893051d37eadb44352f" alt="w=\left(y+[{\frac  {y}{4}}]+[{\frac  {c}{4}}]-2c+[{\frac  {26(m+1)}{10}}]+d-1\right)"></p>
+<p>； w = ( w % 7 + 7 ) % 7;  </p>
+<p>若为一月二月，则看作为去年的13月和14月输入，同时在年份上减一。以上各式中的“%”符号表示取余运算。</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p>对2006年4月4日而言，代入公式算出：</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/8d03cd8817db40c30ec27d0be9cd83d2dee37a7f" alt="{\displaystyle w=\left(6+[{\frac {6}{4}}]+[{\frac {20}{4}}]-2*20+[{\frac {26(4+1)}{10}}]+4-1\right)\mod 7}"></p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a4bc9c870c38d2d286dc7d24e529d115f57d49f2" alt="{\displaystyle =(-12)\mod 7}"></p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6131c2c93b5b330ab11ddb16345c998f499e7a00" alt="{\displaystyle =2}"></p>
+<p>得知为星期二。　</p>
+<h2 id="儒略历时期公式"><a href="#儒略历时期公式" class="headerlink" title="儒略历时期公式"></a>儒略历时期公式</h2><p>若要计算的日期是在1582年10月4日或之前的<a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/wiki/%E5%84%92%E7%95%A5%E6%9B%86" title="儒略历" target="_blank" rel="noopener">儒略历</a>实施年代，公式则为：</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c827312ca7869dd716b6320ca078834fe7803bdc" alt="{\displaystyle w=\left(y+[{\frac {y}{4}}]-c+[{\frac {26(m+1)}{10}}]+d+4\right){\bmod {7}}}"></p>
+<p>or</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/7b111c5f1224e0563a04779a34bfc3d9e9fc8c6b" alt="{\displaystyle w=\left(y+[{\frac {y}{4}}]-c+2m+[{\frac {3(m+1)}{5}}]+d-1\right){\bmod {7}}}"></p>
+<p>这是因<a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/wiki/%E7%BE%85%E9%A6%AC" title="罗马" target="_blank" rel="noopener">罗马</a><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/wiki/%E6%95%99%E5%AE%97" title="教宗" target="_blank" rel="noopener">教宗</a><a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/wiki/%E9%A1%8D%E6%88%91%E7%95%A5%E5%8D%81%E4%B8%89%E4%B8%96" title="额我略十三世" target="_blank" rel="noopener">额我略十三世</a>颁布新历法(<a href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/wiki/%E5%85%AC%E6%9B%86" title="公历" target="_blank" rel="noopener">公历</a>)，把1582年10月4日的后一天改为1582年10月15日。此一公式也要注意前述附注中出现负数的情况。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/01/20200201_1/" data-id="ck631y5580000tovacdlhv6ne"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/01/31/20200131_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

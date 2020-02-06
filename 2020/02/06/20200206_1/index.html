@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200206_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/06/20200206_1/" class="article-date">
+  <time datetime="2020-02-06T03:18:17.634Z" itemprop="datePublished">2020-02-06</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <blockquote>
+<p><strong>要活成两种样子，发光和不发光。不发光的时候，都是在为发光做准备。</strong></p>
+</blockquote>
+<h4 id="HDU-2041-2050"><a href="#HDU-2041-2050" class="headerlink" title="HDU 2041~2050"></a>HDU 2041~2050</h4><a id="more"></a>
+<p>2041</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> []a=<span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">45</span>];</span><br><span class="line">		a[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">		a[<span class="number">3</span>]=<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">4</span>;i&lt;=<span class="number">40</span>;i++) &#123;</span><br><span class="line">			a[i]=a[i-<span class="number">1</span>]+a[i-<span class="number">2</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> t=cin.nextInt();</span><br><span class="line">		<span class="keyword">while</span>(t--&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">			System.out.println(a[n]);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2042</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> a[]=<span class="keyword">new</span> <span class="keyword">int</span> [<span class="number">35</span>];</span><br><span class="line">		a[<span class="number">0</span>]=<span class="number">3</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">30</span>;i++) &#123;</span><br><span class="line">			a[i]=(a[i-<span class="number">1</span>]-<span class="number">1</span>)*<span class="number">2</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> t=cin.nextInt();</span><br><span class="line">		<span class="keyword">while</span>(t--&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">			System.out.println(a[n]);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2043</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">		cin.nextLine();</span><br><span class="line">		<span class="keyword">while</span>(n--&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			String str=cin.nextLine();</span><br><span class="line">			<span class="keyword">int</span> flag1=<span class="number">0</span>,flag2=<span class="number">0</span>,flag3=<span class="number">0</span>,flag4=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;str.length();i++) &#123;</span><br><span class="line">				<span class="keyword">if</span>(str.charAt(i)&gt;=<span class="string">'A'</span>&amp;&amp;str.charAt(i)&lt;=<span class="string">'Z'</span>)flag1=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(str.charAt(i)&gt;=<span class="string">'a'</span>&amp;&amp;str.charAt(i)&lt;=<span class="string">'z'</span>)flag2=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(str.charAt(i)&gt;=<span class="string">'0'</span>&amp;&amp;str.charAt(i)&lt;=<span class="string">'9'</span>)flag3=<span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span>(str.charAt(i)==<span class="string">'~'</span>||str.charAt(i)==<span class="string">'!'</span>||str.charAt(i)==<span class="string">'@'</span>||str.charAt(i)==<span class="string">'#'</span>||str.charAt(i)==<span class="string">'$'</span>||str.charAt(i)==<span class="string">'%'</span>||str.charAt(i)==<span class="string">'^'</span>)flag4=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>((flag1+flag2+flag3+flag4)&gt;=<span class="number">3</span>&amp;&amp;str.length()&gt;=<span class="number">8</span>&amp;&amp;str.length()&lt;=<span class="number">16</span>)System.out.println(<span class="string">"YES"</span>);</span><br><span class="line">			<span class="keyword">else</span> System.out.println(<span class="string">"NO"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2044</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">long</span> num[]=<span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">55</span>];</span><br><span class="line">		num[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">		num[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=<span class="number">50</span>;i++) &#123;</span><br><span class="line">			num[i]=num[i-<span class="number">1</span>]+num[i-<span class="number">2</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">		<span class="keyword">while</span>(n--&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> a=cin.nextInt();</span><br><span class="line">			<span class="keyword">int</span> b=cin.nextInt();</span><br><span class="line">			System.out.println(num[b-a]);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2045</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">n个方格的涂色方案可以由n - 1的涂色方案追加一个得出，分两种情况：</span></span><br><span class="line"><span class="comment">1.在n - 1的【合法】涂色方案后追加一个方格，由于合法方案的首尾颜色不同，因此第n个方格的颜色必定是这两种颜色之外的一种，即方案数为f[n - 1]。 </span></span><br><span class="line"><span class="comment">在n - 1的【不合法】涂色方案（首尾颜色相同）后追加一个合法的涂色方格，也可能使其成为长度为n的合法涂色方案，方案数为2 * f[n - 2]。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">long</span> num[]=<span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">55</span>];</span><br><span class="line">		num[<span class="number">1</span>]=<span class="number">3</span>;</span><br><span class="line">		num[<span class="number">2</span>]=<span class="number">6</span>;</span><br><span class="line">		num[<span class="number">3</span>]=<span class="number">6</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">4</span>;i&lt;=<span class="number">50</span>;i++) &#123;</span><br><span class="line">			num[i]=num[i-<span class="number">1</span>]+<span class="number">2</span>*num[i-<span class="number">2</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext()) &#123;</span><br><span class="line">			<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">			System.out.println(num[n]);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2046</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">long</span> num[]=<span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">55</span>];</span><br><span class="line">		num[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		num[<span class="number">2</span>]=<span class="number">2</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=<span class="number">50</span>;i++) &#123;</span><br><span class="line">			num[i]=num[i-<span class="number">1</span>]+num[i-<span class="number">2</span>];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext()) &#123;</span><br><span class="line">			<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">			System.out.println(num[n]);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2047</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">令f[n] 为长度为n时 的所有合法情况</span></span><br><span class="line"><span class="comment">当最后一个是 E 总数为 f[n-1]</span></span><br><span class="line"><span class="comment">当最后一个是 F 同上</span></span><br><span class="line"><span class="comment">当最后一个是 O 时 n-1 为E或F才合法 所以有 2*f[n-2]个</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">long</span> num[]=<span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">55</span>];</span><br><span class="line">		num[<span class="number">1</span>]=<span class="number">3</span>;</span><br><span class="line">		num[<span class="number">2</span>]=<span class="number">8</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=<span class="number">50</span>;i++) &#123;</span><br><span class="line">			num[i]=<span class="number">2</span>*(num[i-<span class="number">1</span>]+num[i-<span class="number">2</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">while</span>(cin.hasNext()) &#123;</span><br><span class="line">			<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">			System.out.println(num[n]);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2048</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">错排公式</span></span><br><span class="line"><span class="comment">f[n]=(n-1)*(f[n-1]+f[n-2])</span></span><br><span class="line"><span class="comment">简单来说，我对n个元素进行错排，可以分成两种情况</span></span><br><span class="line"><span class="comment">1.假设我前n-1个已经完全错排，那么我可以拿第n个元素把前n-1个元素中的任意一个换出来。</span></span><br><span class="line"><span class="comment">所以f[n-1]*(n-1)</span></span><br><span class="line"><span class="comment">但是这种情况并不完全，所以考虑第二种</span></span><br><span class="line"><span class="comment">2.假设n-1个元素中有一个元素没有错乱，即它是正确的，那么我可以用第n个元素把他换出来，这样所有元素也会是错乱的，而我们可以假定（n-1）种正确的那个元素，比如我们可以认为第一个元素正确，其他元素错乱，当然也可以是第二个，第三个。。。。。。这样得到公式f[n-2]*(n-1).</span></span><br><span class="line"><span class="comment">再把二者加起来就是错排公式。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">import</span> java.text.DecimalFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		DecimalFormat fm=<span class="keyword">new</span> DecimalFormat(<span class="string">"0.00"</span>);</span><br><span class="line">		<span class="keyword">long</span> num[]=<span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">25</span>];</span><br><span class="line">		<span class="keyword">long</span> k[]=<span class="keyword">new</span> <span class="keyword">long</span> [<span class="number">25</span>];</span><br><span class="line">		num[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">		num[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">		k[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=<span class="number">20</span>;i++) &#123;</span><br><span class="line">			num[i]=(i-<span class="number">1</span>)*(num[i-<span class="number">1</span>]+num[i-<span class="number">2</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=<span class="number">20</span>;i++) &#123;</span><br><span class="line">			k[i]=k[i-<span class="number">1</span>]*i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> t=cin.nextInt();</span><br><span class="line">		<span class="keyword">while</span>(t--&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">			System.out.println(fm.format((<span class="keyword">double</span>)num[n]/(<span class="keyword">double</span>)k[n]*<span class="number">100</span>)+<span class="string">"%"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2049</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">long</span> num[]=<span class="keyword">new</span> <span class="keyword">long</span>[<span class="number">25</span>];</span><br><span class="line">		num[<span class="number">1</span>]=<span class="number">0</span>;</span><br><span class="line">		num[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">3</span>;i&lt;=<span class="number">20</span>;i++) &#123;</span><br><span class="line">			num[i]=(i-<span class="number">1</span>)*(num[i-<span class="number">1</span>]+num[i-<span class="number">2</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">int</span> t=cin.nextInt();</span><br><span class="line">		<span class="keyword">while</span>(t--&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> n=cin.nextInt();</span><br><span class="line">			<span class="keyword">int</span> m=cin.nextInt();</span><br><span class="line">			<span class="keyword">long</span> s=<span class="number">1</span>;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=n;i&gt;n-m;i--)</span><br><span class="line">				s*=i;</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">				s/=i;</span><br><span class="line">			System.out.println(num[m]*s);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2050</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">折线分平面</span></span><br><span class="line"><span class="comment">      根据直线分平面可知，由交点决定了射线和线段的条数，进而决定了新增的区域数。当n-1条折线时，区域数为f（n-1）。为了使增加的区域最多，则折线的两边的线段要和n-1条折线的边，即2*（n-1）条线段相交。那么新增的线段数为4*（n-1），射线数为2。但要注意的是，折线本身相邻的两线段只能增加一个区域。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">       故：f(n)=f(n-1)+4(n-1)+2-1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                      =f(n-1)+4(n-1)+1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                     =f(n-2)+4(n-2)+4(n-1)+2</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                     ……</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                     =f(1)+4+4*2+……+4(n-1)+(n-1)   </span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">                     =2n^2-n+1</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Scanner cin = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line">		<span class="keyword">int</span> t=cin.nextInt();</span><br><span class="line">		<span class="keyword">while</span>(t--&gt;<span class="number">0</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> a=cin.nextInt();</span><br><span class="line">			System.out.println(<span class="number">2</span>*a*a-a+<span class="number">1</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/06/20200206_1/" data-id="ck6a69z6a000jvkva0q9q443n"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/02/05/20200205_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

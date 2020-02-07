@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200207_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/07/20200207_1/" class="article-date">
+  <time datetime="2020-02-07T02:53:15.027Z" itemprop="datePublished">2020-02-07</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <blockquote>
+<p><strong>别让平淡的生活耗尽你所有的向往</strong></p>
+</blockquote>
+<h2 id="python-wordcloud库的简单使用"><a href="#python-wordcloud库的简单使用" class="headerlink" title="python wordcloud库的简单使用"></a>python wordcloud库的简单使用</h2><p>词云提供了某种程度的‘第一印象’，最常使用的词会一目了然。</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wordcloud <span class="keyword">import</span> WordCloud</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> imageio</span><br><span class="line"><span class="comment">#生成遮罩</span></span><br><span class="line">mask=imageio.imread(<span class="string">"123.jpg"</span>)</span><br><span class="line"><span class="comment">#打开文件</span></span><br><span class="line">txt = open(<span class="string">'1.txt'</span>).read()</span><br><span class="line">w=wordcloud.WordCloud(scale=<span class="number">4</span>,background_color=<span class="string">"white"</span>,mask=mask)</span><br><span class="line">w.generate(txt)</span><br><span class="line">w.to_file(<span class="string">"py.png"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="wordcloud-WordCloud-参数"><a href="#wordcloud-WordCloud-参数" class="headerlink" title="wordcloud.WordCloud 参数"></a>wordcloud.WordCloud 参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">font_path : string //字体路径，需要展现什么字体就把该字体路径+后缀名写上，如：font_path = <span class="string">'黑体.ttf'</span></span><br><span class="line"> </span><br><span class="line">width : int (default=<span class="number">400</span>) //输出的画布宽度，默认为<span class="number">400</span>像素</span><br><span class="line"> </span><br><span class="line">height : int (default=<span class="number">200</span>) //输出的画布高度，默认为<span class="number">200</span>像素</span><br><span class="line"> </span><br><span class="line">prefer_horizontal : float (default=<span class="number">0.90</span>) //词语水平方向排版出现的频率，默认 <span class="number">0.9</span> （所以词语垂直方向排版出现频率为 <span class="number">0.1</span> ）</span><br><span class="line"> </span><br><span class="line">mask : nd-array <span class="keyword">or</span> <span class="literal">None</span> (default=<span class="literal">None</span>) //如果参数为空，则使用二维遮罩绘制词云。如果 mask 非空，设置的宽高值将被忽略，遮罩形状被 mask 取代。除全白（<span class="comment">#FFFFFF）的部分将不会绘制，其余部分会用于绘制词云。如：bg_pic = imread('读取一张图片.png')，背景图片的画布一定要设置为白色（#FFFFFF），然后显示的形状为不是白色的其他颜色。可以用ps工具将自己要显示的形状复制到一个纯白色的画布上再保存，就ok了。</span></span><br><span class="line"> </span><br><span class="line">scale : float (default=<span class="number">1</span>) //按照比例进行放大画布，如设置为<span class="number">1.5</span>，则长和宽都是原来画布的<span class="number">1.5</span>倍。</span><br><span class="line"> </span><br><span class="line">min_font_size : int (default=<span class="number">4</span>) //显示的最小的字体大小</span><br><span class="line"> </span><br><span class="line">font_step : int (default=<span class="number">1</span>) //字体步长，如果步长大于<span class="number">1</span>，会加快运算但是可能导致结果出现较大的误差。</span><br><span class="line"> </span><br><span class="line">max_words : number (default=<span class="number">200</span>) //要显示的词的最大个数</span><br><span class="line"> </span><br><span class="line">stopwords : set of strings <span class="keyword">or</span> <span class="literal">None</span> //设置需要屏蔽的词，如果为空，则使用内置的STOPWORDS</span><br><span class="line"> </span><br><span class="line">background_color : color value (default=”black”) //背景颜色，如background_color=<span class="string">'white'</span>,背景颜色为白色。</span><br><span class="line"> </span><br><span class="line">max_font_size : int <span class="keyword">or</span> <span class="literal">None</span> (default=<span class="literal">None</span>) //显示的最大的字体大小</span><br><span class="line"> </span><br><span class="line">mode : string (default=”RGB”) //当参数为“RGBA”并且background_color不为空时，背景为透明。</span><br><span class="line"> </span><br><span class="line">relative_scaling : float (default=<span class="number">.5</span>) //词频和字体大小的关联性</span><br><span class="line"> </span><br><span class="line">color_func : callable, default=<span class="literal">None</span> //生成新颜色的函数，如果为空，则使用 self.color_func</span><br><span class="line"> </span><br><span class="line">regexp : string <span class="keyword">or</span> <span class="literal">None</span> (optional) //使用正则表达式分隔输入的文本</span><br><span class="line"> </span><br><span class="line">collocations : bool, default=<span class="literal">True</span> //是否包括两个词的搭配</span><br><span class="line"> </span><br><span class="line">colormap : string <span class="keyword">or</span> matplotlib colormap, default=”viridis” //给每个单词随机分配颜色，若指定color_func，则忽略该方法。</span><br><span class="line"> </span><br><span class="line">fit_words(frequencies)  //根据词频生成词云</span><br><span class="line">generate(text)  //根据文本生成词云</span><br><span class="line">generate_from_frequencies(frequencies[, ...])   //根据词频生成词云</span><br><span class="line">generate_from_text(text)    //根据文本生成词云</span><br><span class="line">process_text(text)  //将长文本分词并去除屏蔽词（此处指英语，中文分词还是需要自己用别的库先行实现，使用上面的 fit_words(frequencies) ）</span><br><span class="line">recolor([random_state, color_func, colormap])   //对现有输出重新着色。重新上色会比重新生成整个词云快很多。</span><br><span class="line">to_array()  //转化为 numpy array</span><br><span class="line">to_file(filename)   //输出到文件</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/07/20200207_1/" data-id="ck6bkwqgf000i2ovaxj4vj8qw"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/02/06/20200206_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

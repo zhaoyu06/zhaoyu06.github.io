@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200210_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/10/20200210_1/" class="article-date">
+  <time datetime="2020-02-10T01:58:58.165Z" itemprop="datePublished">2020-02-10</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h2 id="JupyterNotebook-的简单使用"><a href="#JupyterNotebook-的简单使用" class="headerlink" title="JupyterNotebook 的简单使用"></a>JupyterNotebook 的简单使用</h2><a id="more"></a>
+<h2 id="1-Jupyter-Notebook服务启动与停止"><a href="#1-Jupyter-Notebook服务启动与停止" class="headerlink" title="1.Jupyter Notebook服务启动与停止"></a><strong>1.Jupyter Notebook服务启动与停止</strong></h2><p>环境为Windows10系统</p>
+<p>首先进入命令提示符cmd，用cd命令切换到工作目录，这里不做详细解释，可自行百度</p>
+<p>键入命令<strong>jupyter notebook</strong></p>
+<p>之后Jupyter Notebook服务就会启动，并在电脑默认浏览器里打开首页并显示当前工作目录的文件</p>
+<p>在命令提示符窗口使用<strong>Control-C</strong>停止服务，双击则跳过确认</p>
+<h2 id="2-Jupyter-Notebook常用快捷键"><a href="#2-Jupyter-Notebook常用快捷键" class="headerlink" title="2.Jupyter Notebook常用快捷键"></a><strong>2.Jupyter Notebook常用快捷键</strong></h2><h3 id="2-1模式切换"><a href="#2-1模式切换" class="headerlink" title="2.1模式切换"></a><strong>2.1模式切换</strong></h3><ul>
+<li>当前cell侧边为蓝色时，表示此时为<strong>命令模式</strong>，按<strong>Enter</strong>切换为编辑模式</li>
+<li>当前cell侧边为绿色时，表示此时为<strong>编辑模式</strong>，按<strong>Esc</strong>切换为命令模式</li>
+</ul>
+<h3 id="2-2命令模式快捷键"><a href="#2-2命令模式快捷键" class="headerlink" title="2.2命令模式快捷键"></a><strong>2.2命令模式快捷键</strong></h3><ul>
+<li><strong>H</strong>：显示快捷键帮助</li>
+<li><strong>F</strong>：查找和替换</li>
+<li><strong>P</strong>：打开命令面板</li>
+<li><strong>Ctrl-Enter</strong>：运行当前cell</li>
+<li><strong>Shift-Enter</strong>：运行当前cell并跳转到下一cell</li>
+<li><strong>Alt-Enter</strong>：运行当前cell并在下方新建cell</li>
+<li><strong>Y</strong>：把当前cell内容转换为代码形式</li>
+<li><strong>M</strong>：把当前cell内容转换为markdown形式</li>
+<li><strong>1~6</strong>：把当前cell内容设置为标题1~6格式</li>
+<li><strong>Shift+上下键</strong>：按住Shift进行上下键操作可复选多个cell</li>
+<li><strong>A</strong>：在上方新建cell</li>
+<li><strong>B</strong>：在下方新建cell</li>
+<li><strong>X/C/Shift-V/V</strong>：剪切/复制/上方粘贴/下方粘贴</li>
+<li><strong>双击D</strong>：删除当前cell</li>
+<li><strong>Z</strong>：撤销删除</li>
+<li><strong>S</strong>：保存notebook</li>
+<li><strong>L</strong>：为当前cell的代码添加行编号</li>
+<li><strong>Shift-L</strong>：为所有cell的代码添加行编号</li>
+<li><strong>Shift-M</strong>：合并所选cell或合并当前cell和下方的cell</li>
+<li><strong>双击I</strong>：停止kernel</li>
+<li><strong>双击0</strong>：重启kernel</li>
+</ul>
+<h3 id="2-3编辑模式快捷键"><a href="#2-3编辑模式快捷键" class="headerlink" title="2.3编辑模式快捷键"></a><strong>2.3编辑模式快捷键</strong></h3><ul>
+<li><strong>Tab</strong>：代码补全</li>
+<li><strong>Ctrl-A</strong>：全选</li>
+<li><strong>Ctrl-Z</strong>：撤销</li>
+<li><strong>Ctrl-Home</strong>：将光标移至cell最前端</li>
+<li><strong>Ctrl-End</strong>：将光标移至cell末端</li>
+</ul>
+<h2 id="3-Jupyter-Notebook中Matplotlib绘图"><a href="#3-Jupyter-Notebook中Matplotlib绘图" class="headerlink" title="3.Jupyter Notebook中Matplotlib绘图"></a><strong>3.Jupyter Notebook中Matplotlib绘图</strong></h2><p>若要使用Matplotlib绘图，为确保图形能顺利输出，需在cell开头键入</p>
+<p>   <code>%matplotlib inline</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/10/20200210_1/" data-id="ck6ft75o3000mtsvaenqtl840"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/02/09/20200209_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

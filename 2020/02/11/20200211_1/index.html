@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200211_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/11/20200211_1/" class="article-date">
+  <time datetime="2020-02-11T01:39:23.558Z" itemprop="datePublished">2020-02-11</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <blockquote>
+<p>越努力，越幸运。</p>
+</blockquote>
+<h2 id="HDU-2051-2060"><a href="#HDU-2051-2060" class="headerlink" title="HDU 2051~2060"></a>HDU 2051~2060</h2><a id="more"></a>
+<p>2051</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">	public static void main(String []args) &#123;</span><br><span class="line">		Scanner cin=new Scanner(System.in);</span><br><span class="line">		while(cin.hasNext()) &#123;</span><br><span class="line">			int n=cin.nextInt();</span><br><span class="line">			int a[]=new int[100];</span><br><span class="line">			int i=0;</span><br><span class="line">			while(n!=0) &#123;</span><br><span class="line">				a[i]=n%2;</span><br><span class="line">				n/=2;</span><br><span class="line">				i++;</span><br><span class="line">			&#125;</span><br><span class="line">			for(int j=i-1;j&gt;=0;j--) &#123;</span><br><span class="line">				System.out.print(a[j]);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2052</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">	public static void main(String []args) &#123;</span><br><span class="line">		Scanner cin=new Scanner(System.in);</span><br><span class="line">		while(cin.hasNext()) &#123;</span><br><span class="line">			int m=cin.nextInt();</span><br><span class="line">			int n=cin.nextInt();</span><br><span class="line">			System.out.print(&quot;+&quot;);</span><br><span class="line">			for(int i=1;i&lt;=m;i++) &#123;</span><br><span class="line">				System.out.print(&quot;-&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(&quot;+&quot;);</span><br><span class="line">			for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">				for(int j=0;j&lt;=m+1;j++) &#123;</span><br><span class="line">					if(j==0||j==m+1)System.out.print(&quot;|&quot;);</span><br><span class="line">					else System.out.print(&quot; &quot;);</span><br><span class="line">				&#125;</span><br><span class="line">				System.out.println();</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.print(&quot;+&quot;);</span><br><span class="line">			for(int i=1;i&lt;=m;i++) &#123;</span><br><span class="line">				System.out.print(&quot;-&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(&quot;+&quot;);</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2053</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">	public static void main(String []args) &#123;</span><br><span class="line">		Scanner cin=new Scanner(System.in);</span><br><span class="line">		while(cin.hasNext()) &#123;</span><br><span class="line">			int n=cin.nextInt();</span><br><span class="line">			int c=0;</span><br><span class="line">			for(int i=1;i&lt;=n;i++) &#123;</span><br><span class="line">				if(n%i==0)c^=1;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(c);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2054</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import java.math.BigDecimal;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">	public static void main(String []args) &#123;</span><br><span class="line">		Scanner cin=new Scanner(System.in);</span><br><span class="line">		while(cin.hasNext()) &#123;</span><br><span class="line">			BigDecimal a=cin.nextBigDecimal();</span><br><span class="line">			BigDecimal b=cin.nextBigDecimal();</span><br><span class="line">			if(a.compareTo(b)==0)System.out.println(&quot;YES&quot;);</span><br><span class="line">			else System.out.println(&quot;NO&quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2055</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">	public static void main(String []args) &#123;</span><br><span class="line">		Scanner cin=new Scanner(System.in);</span><br><span class="line">		int n=cin.nextInt();</span><br><span class="line">		while(n--&gt;0) &#123;</span><br><span class="line">			char a=cin.next().charAt(0);</span><br><span class="line">			int b=cin.nextInt();</span><br><span class="line">			int c;</span><br><span class="line">			if(a&gt;=&apos;A&apos;&amp;&amp;a&lt;=&apos;Z&apos;)c=a-&apos;A&apos;+1;</span><br><span class="line">			else c=-(a-&apos;a&apos;+1);</span><br><span class="line">			System.out.println(b+c);</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2056</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner sc = new Scanner(System.in);</span><br><span class="line">        while (sc.hasNext()) &#123;</span><br><span class="line">            double x1 = sc.nextDouble();</span><br><span class="line">            double y1 = sc.nextDouble();</span><br><span class="line"></span><br><span class="line">            double x2 = sc.nextDouble();</span><br><span class="line">            double y2 = sc.nextDouble();</span><br><span class="line"></span><br><span class="line">            double x3 = sc.nextDouble();</span><br><span class="line">            double y3 = sc.nextDouble();</span><br><span class="line"></span><br><span class="line">            double x4 = sc.nextDouble();</span><br><span class="line">            double y4 = sc.nextDouble();</span><br><span class="line">            double arr1[] = &#123; x1, x2, x3, x4 &#125;;</span><br><span class="line">            double arr2[] = &#123; y1, y2, y3, y4 &#125;;</span><br><span class="line">            Arrays.sort(arr1);</span><br><span class="line">            Arrays.sort(arr2);</span><br><span class="line">            double luo = Math.min(y1, y2);</span><br><span class="line">            double xiang = Math.max(y3, y4);</span><br><span class="line"></span><br><span class="line">            double luo1 = Math.min(x1, x2);</span><br><span class="line">            double xiang1 = Math.max(x3, x4);</span><br><span class="line"></span><br><span class="line">            double luo3 = Math.max(y1, y2);</span><br><span class="line">            double xiang3 = Math.min(y3, y4);</span><br><span class="line"></span><br><span class="line">            double luo4 = Math.max(x1, x2);</span><br><span class="line">            double xiang4 = Math.min(x3, x4);</span><br><span class="line"></span><br><span class="line">            if (luo &gt;= xiang || luo1 &gt;= xiang1 || xiang3 &gt;= luo3 || xiang4 &gt;= luo4) &#123;</span><br><span class="line">                System.out.println(&quot;0.00&quot;);</span><br><span class="line"></span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                double kuan = Math.abs(arr1[1] - arr1[2]);</span><br><span class="line">                double kuan1 = Math.abs(arr2[1] - arr2[2]);</span><br><span class="line">                System.out.printf(&quot;%.2f&quot;, kuan * kuan1);</span><br><span class="line">                System.out.println();</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        sc.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2057</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main&#123;</span><br><span class="line">	public static void main(String []args) &#123;</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		while(input.hasNext())&#123;</span><br><span class="line">        	long a = input.nextLong(16);</span><br><span class="line">        	long b = input.nextLong(16);</span><br><span class="line">        	if( a + b &gt;= 0)&#123;</span><br><span class="line">        		System.out.format(&quot;%X&quot;, a+b);</span><br><span class="line">        	    System.out.println();</span><br><span class="line">        	&#125;</span><br><span class="line">        	else&#123;</span><br><span class="line">        		System.out.format(&quot;-%X&quot;, -(a+b));</span><br><span class="line">        		System.out.println();</span><br><span class="line">        		&#125;</span><br><span class="line">        &#125;</span><br><span class="line">		input.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">或</span><br><span class="line">import java.util.Scanner;</span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        Scanner sc_01 = new Scanner(System.in);</span><br><span class="line">        while (sc_01.hasNext())&#123;</span><br><span class="line">            String num_01 = sc_01.next();</span><br><span class="line">            String num_02 = sc_01.next();</span><br><span class="line">            //1.先将字符串转为十六进制,十六进制转为十进制</span><br><span class="line">            long result = Long.parseLong(num_01, 16)+ Long.parseLong(num_02,16);</span><br><span class="line">            if(result&gt;=0)&#123;</span><br><span class="line">                System.out.println(Long.toHexString(result).toUpperCase());</span><br><span class="line">            &#125;else &#123;</span><br><span class="line">                System.out.println(&quot;-&quot;+(Long.toHexString(Math.abs(result))).toUpperCase());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2058</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner cin = new Scanner(System.in);</span><br><span class="line">		while (cin.hasNext()) &#123;</span><br><span class="line">			int n = cin.nextInt();</span><br><span class="line">			int m = cin.nextInt();</span><br><span class="line">			if (n == 0 &amp;&amp; m == 0)</span><br><span class="line">				break;</span><br><span class="line">			int t = (int) Math.sqrt(2.0 * m);</span><br><span class="line">			for (int j = t; j &gt;= 1; j--)</span><br><span class="line">			&#123;</span><br><span class="line">				int i;</span><br><span class="line">				i = (2 * m / j + (1 - j)) / 2;</span><br><span class="line">				if (j * (2 * i + j - 1) == 2 * m) &#123;</span><br><span class="line">					System.out.println(&quot;[&quot; + i + &quot;,&quot; + (i + j - 1) + &quot;]&quot;);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println();</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2059</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner cin = new Scanner(System.in);</span><br><span class="line">		int path[] = new int[102];</span><br><span class="line">		double dp[] = new double[102];</span><br><span class="line">		int L, N, C, T, vr, vt1, vt2;</span><br><span class="line">		while (cin.hasNext()) &#123;</span><br><span class="line">			L = cin.nextInt();</span><br><span class="line">			N = cin.nextInt();</span><br><span class="line">			C = cin.nextInt();</span><br><span class="line">			T = cin.nextInt();</span><br><span class="line">			vr = cin.nextInt();</span><br><span class="line">			vt1 = cin.nextInt();</span><br><span class="line">			vt2 = cin.nextInt();</span><br><span class="line">			for (int i = 1; i &lt;= N; i++) &#123;</span><br><span class="line">				path[i] = cin.nextInt();</span><br><span class="line">			&#125;</span><br><span class="line">			path[0] = 0;</span><br><span class="line">			path[N + 1] = L;</span><br><span class="line">			dp[0] = 0;</span><br><span class="line">			for (int i = 1; i &lt;= N + 1; i++) &#123;</span><br><span class="line">				double min = 1000000;</span><br><span class="line">				for (int j = 0; j &lt; i; j++) &#123;</span><br><span class="line">					double temp;</span><br><span class="line">					if (path[i] - path[j] &gt;= C) &#123;</span><br><span class="line">						temp = dp[j] + C * 1.0 / vt1 + (path[i] - path[j] - C) * 1.0 / vt2;</span><br><span class="line">					&#125; else &#123;</span><br><span class="line">						temp = dp[j] + (path[i] - path[j]) * 1.0 / vt1;</span><br><span class="line">					&#125;</span><br><span class="line">					if (j &gt; 0)</span><br><span class="line">						temp += T;</span><br><span class="line">					if (temp &lt; min)</span><br><span class="line">						min = temp;</span><br><span class="line">				&#125;</span><br><span class="line">				dp[i] = min;</span><br><span class="line">			&#125;</span><br><span class="line">			double rt;</span><br><span class="line">			rt = L * 1.0 / vr;</span><br><span class="line">			if (dp[N + 1] &lt; rt) &#123;</span><br><span class="line">				System.out.println(&quot;What a pity rabbit!&quot;);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				System.out.println(&quot;Good job,rabbit!&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cin.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2060</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class Main &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		Scanner in = new Scanner(System.in);</span><br><span class="line">		int T = in.nextInt();</span><br><span class="line">		while (T-- &gt; 0) &#123;</span><br><span class="line">			int[] db = &#123; 0, 7, 13, 18, 22, 25, 27 &#125;;</span><br><span class="line">			int sum = 0;</span><br><span class="line">			int n = in.nextInt();</span><br><span class="line">			int a = in.nextInt();</span><br><span class="line">			int b = in.nextInt();</span><br><span class="line">			if (n &lt;= 6) &#123;</span><br><span class="line">				sum = a + db[n];</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				sum = a + 1 * (n - 6) + 7 * (n - 6) + 27;</span><br><span class="line">			&#125;</span><br><span class="line">			if (sum &gt;= b) &#123;</span><br><span class="line">				System.out.println(&quot;Yes&quot;);</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				System.out.println(&quot;No&quot;);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		in.close();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/11/20200211_1/" data-id="ck6h7xl7l000mm4va21zkspaz"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/02/10/20200210_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

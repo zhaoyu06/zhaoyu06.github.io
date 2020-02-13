@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200213_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/13/20200213_1/" class="article-date">
+  <time datetime="2020-02-13T01:55:01.638Z" itemprop="datePublished">2020-02-13</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h1 id="turtle-绘图"><a href="#turtle-绘图" class="headerlink" title="turtle 绘图"></a>turtle 绘图</h1><p>turtle 是 python 内置的一个比较有趣味的模块，俗称 海龟绘图，它是基于 tkinter 模块打造，提供一些简单的绘图工具，海龟作图最初源自 20 世纪 60 年代的 Logo 编程语言，之后一些很酷的 Python 程序员构建了 turtle 库，让其他程序员只需要 import turtle，就可以在 Python 中使用海龟作图。</p>
+<a id="more"></a>
+
+<h2 id="1-基本功能介绍"><a href="#1-基本功能介绍" class="headerlink" title="1. 基本功能介绍"></a>1. 基本功能介绍</h2><p>在海龟作图中，我们可以编写指令让一个虚拟的（想象中的）海龟在屏幕上来回移动。这个海龟带着一只钢笔，我们可以让海龟无论移动到哪都使用这只钢笔来绘制线条。通过编写代码，以各种很酷的模式移动海龟，我们可以绘制出令人惊奇的图片。使用海龟作图，我们不仅能够只用几行代码就创建出令人印象深刻的视觉效果，而且还可以跟随海龟看看每行代码如何影响到它的移动。这能够帮助我们理解代码的逻辑。所以海龟作图也常被用作新手学习 Python 的一种方式。</p>
+<h3 id="1-1-Turtle-motion-运动控制"><a href="#1-1-Turtle-motion-运动控制" class="headerlink" title="1.1 Turtle motion (运动控制)"></a>1.1 Turtle motion (运动控制)</h3><p>本节中包含了 运动控制 中常用的一些函数</p>
+<p><code>turtle.goto(x,y)</code></p>
+<p>画笔定位到坐标(x,y)</p>
+<p><code>turtle.forward(distance)</code><br>向正方向运动 distance 长的距离</p>
+<p><code>turtle.backward(distance)</code><br>向负方向运动 distance 长的距离</p>
+<p><code>turtle.right(angle)</code><br>向右偏 angle 度</p>
+<p><code>turtle.left(angle)</code><br>向左偏 angle 度</p>
+<p><code>turtle.home()</code><br>回到原点</p>
+<p><code>turtle.circle(radius, extent=None, steps=None)</code><br>画圆形 radius 为半径，extent 为圆的角度</p>
+<p><code>turtle.speed(speed)</code><br>以 speed 速度运动</p>
+<p>首先画一个边长为100的正方形，然后再以半径为50画出其3/4圆。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br></pre></td><td class="code"><pre><span class="line">turtle.speed(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">turtle.goto(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">    </span><br><span class="line">    turtle.forward(<span class="number">100</span>)</span><br><span class="line">    </span><br><span class="line">    turtle.right(<span class="number">90</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">turtle.home()</span><br><span class="line"></span><br><span class="line">turtle.circle(<span class="number">50</span>,<span class="number">270</span>)</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 1.2 Pen control (画笔控制)</span></span><br><span class="line"></span><br><span class="line">本节包含了对画笔的控制函数，常用的如下：</span><br><span class="line"></span><br><span class="line">`turtle.pendown()`  </span><br><span class="line">落笔，在此状态下会画出运动的轨迹  </span><br><span class="line">`turtle.penup()`  </span><br><span class="line">起笔，在此状态下不会画出运动的轨迹  </span><br><span class="line">`turtle.pensize(width=<span class="literal">None</span>`  </span><br><span class="line">画笔粗细  </span><br><span class="line">`turtle.pencolor(*args）`  </span><br><span class="line">画笔颜色  </span><br><span class="line">`turtle.fillcolor(*args)`  </span><br><span class="line">填充颜色  </span><br><span class="line">`turtle.begin_fill()`  </span><br><span class="line">开始填充  </span><br><span class="line">`turtle.end_fill()`  </span><br><span class="line">结束填充  </span><br><span class="line">`turtle.write(arg, move=<span class="literal">False</span>, align=”left”, font=(“Arial”, <span class="number">8</span>, “normal”))`  </span><br><span class="line">写文字</span><br><span class="line"></span><br><span class="line">画一个正方形并填充，最后写一些文字</span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">turtle.pencolor(<span class="string">'red'</span>)</span><br><span class="line"></span><br><span class="line">turtle.pendown()</span><br><span class="line"></span><br><span class="line">turtle.fillcolor(<span class="string">'blue'</span>)</span><br><span class="line"></span><br><span class="line">turtle.begin_fill()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">    </span><br><span class="line">    turtle.forward(<span class="number">200</span>)</span><br><span class="line">    </span><br><span class="line">    turtle.right(<span class="number">90</span>)</span><br><span class="line"></span><br><span class="line">turtle.end_fill()</span><br><span class="line">turtle.penup()</span><br><span class="line">turtle.goto(<span class="number">100</span>,<span class="number">-100</span>)</span><br><span class="line">turtle.write(<span class="string">'i like you'</span>)</span><br><span class="line"> ```   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">同时，我们还可以设置画笔打粗细、画笔的速度等属性，</span><br><span class="line"></span><br><span class="line"><span class="comment">### 1.3 Window control (视窗控制)</span></span><br><span class="line"></span><br><span class="line">这里有两个常用的函数</span><br><span class="line"></span><br><span class="line">`turtle.bgcolor(*args)`  </span><br><span class="line">设置背景颜色  </span><br><span class="line">`turtle.bgpic(picname=<span class="literal">None</span>)`  </span><br><span class="line">背景图片填充  </span><br><span class="line">设置代码如下</span><br><span class="line"></span><br><span class="line">    turtle.bgcolor(<span class="string">'red'</span>)</span><br><span class="line">    turtle.bgpic(<span class="string">r'yourpic.png'</span>)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>\. 海龟绘图实例</span><br><span class="line">----------</span><br><span class="line"></span><br><span class="line">我们用几个简单的例子讲解海龟绘图的用法。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 2.1 用正方形画圆</span></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">360</span>):</span><br><span class="line">    turtle.setheading(i)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">        turtle.forward(<span class="number">100</span>)</span><br><span class="line">        turtle.left(<span class="number">90</span>)</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="number">360</span> 个正方形每隔 <span class="number">1</span> 度排列，短短几行代码可以生成一个漂亮规则的图形。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">### 2.2 红色的五角星</span></span><br><span class="line"></span><br><span class="line">使用填充功能画出一个大红星</span><br><span class="line">```python</span><br><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.color(<span class="string">'red'</span>,<span class="string">'red'</span>)</span><br><span class="line">turtle.begin_fill()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">    turtle.forward(<span class="number">100</span>)</span><br><span class="line">    turtle.right(<span class="number">144</span>)</span><br><span class="line">turtle.end_fill()</span><br></pre></td></tr></table></figure>
+
+<p>喜欢一个人，是妙不可言的感觉。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/13/20200213_1/" data-id="ck6k3dz76000nvkvaz0vzhgn2"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/02/12/20200212_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

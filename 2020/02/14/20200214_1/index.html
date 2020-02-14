@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200214_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/14/20200214_1/" class="article-date">
+  <time datetime="2020-02-14T03:50:50.488Z" itemprop="datePublished">2020-02-14</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <blockquote>
+<p><strong>等你熬过所有的苦，就会遇见所有的甜。</strong></p>
+</blockquote>
+<h3 id="scanf-“-”-和scanf-“-n”"><a href="#scanf-“-”-和scanf-“-n”" class="headerlink" title="scanf(“%[]”)和scanf(“%n”)"></a>scanf(“%[]”)和scanf(“%n”)</h3><a id="more"></a>
+<h2 id="一个字符集"><a href="#一个字符集" class="headerlink" title="%[] 一个字符集"></a>%[] 一个字符集</h2><p>[]内是匹配的字符,^表示求反集，当遇到非集合内的字符时立即终止输入</p>
+<h3 id="1-输入指定范围的小写字母，遇到非法字符立即终止"><a href="#1-输入指定范围的小写字母，遇到非法字符立即终止" class="headerlink" title="1. 输入指定范围的小写字母，遇到非法字符立即终止"></a>1. 输入指定范围的小写字母，遇到非法字符立即终止</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%[a-z]&quot;,str1);</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot;,str1);</span><br><span class="line"></span><br><span class="line">输入：abc123</span><br><span class="line"></span><br><span class="line">输出:abc</span><br><span class="line"></span><br><span class="line">//输入带空格的自定范围的字符串</span><br><span class="line"></span><br><span class="line">scanf(&quot;%[a-z A-Z0-9]&quot;, str1);</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot;,str1);</span><br><span class="line"></span><br><span class="line">输入：abc123 def 456</span><br><span class="line"></span><br><span class="line">输出:abc123</span><br><span class="line"></span><br><span class="line">scanf(&quot;%[a-z0-9]&quot;, str1);</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot;,str1);</span><br><span class="line"></span><br><span class="line">输入：abc123</span><br><span class="line"></span><br><span class="line">输出：abc123</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-输入不包括指定字符的字符"><a href="#2-输入不包括指定字符的字符" class="headerlink" title="2. 输入不包括指定字符的字符"></a>2. 输入不包括指定字符的字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%[^a-z]&quot;, str1);</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot;,str1);</span><br><span class="line"></span><br><span class="line">输入：123 456abc123</span><br><span class="line"></span><br><span class="line">输出：123 456</span><br><span class="line"></span><br><span class="line">注意：这种方式可以读入空格</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">scanf(&quot;%[^\n]&quot;, str1);</span><br><span class="line"></span><br><span class="line">printf(&quot;%s\n&quot;,str1);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//读入一整行字符串，包括空格</span><br><span class="line"></span><br><span class="line">输入：abc123 def</span><br><span class="line"></span><br><span class="line">输出：abc123 def</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">scanf(&quot;%[^a-d0-9]&quot;, str1);</span><br><span class="line">printf(&quot;%s\n&quot;,str1);</span><br><span class="line"></span><br><span class="line">输入:efxy89</span><br><span class="line"></span><br><span class="line">输出:efxy</span><br><span class="line"></span><br><span class="line">我们来看看百分号表示什么意思：</span><br><span class="line"></span><br><span class="line">%表示选择，%后面的是条件，比如&quot;%s&quot;，s是一个条件，表示任意字符，&quot;%s&quot;的意思是：只要输入的东西是一个字符，就把它拷贝给str。&quot;%3s&quot;又多了一个条件：只拷贝3个字符。 “%[a-z]”的条件稍微严格一些，输入的东西不但是字符，还得是一个小写字母的字符。</span><br><span class="line"></span><br><span class="line">%* 与%刚好相反，表示过滤满足条件的字符，也就是跳过满足条件的字符，其后一定要有新的%语句，否则无法读入</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-跳过指定范围的字符再读取指定范围的字符"><a href="#3-跳过指定范围的字符再读取指定范围的字符" class="headerlink" title="3. 跳过指定范围的字符再读取指定范围的字符"></a>3. 跳过指定范围的字符再读取指定范围的字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">scanf(&quot;%*[a-z0-9]%[^\n]&quot;,str1);</span><br><span class="line">printf(&quot;%s\n&quot;,str1);</span><br><span class="line"></span><br><span class="line">输入：a1b2c3ABCdef 123</span><br><span class="line"></span><br><span class="line">输出:ABC</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-和-组合使用可以提取指定字符串"><a href="#4-和-组合使用可以提取指定字符串" class="headerlink" title="4. %[]和%*组合使用可以提取指定字符串"></a>4. %[]和%*组合使用可以提取指定字符串</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">从&lt;sip:tom@172.18.1.133&gt;中提取tom</span><br><span class="line"></span><br><span class="line">const char* url = &quot;&lt;sip:tom@172.18.1.133&gt;&quot;;</span><br><span class="line">char uri[10] = &#123;0&#125;;</span><br><span class="line">sscanf(url,&quot;%*[^:]:%[^@]&quot;, uri);</span><br><span class="line">printf(&quot;%s &quot;,uri);</span><br><span class="line"></span><br><span class="line">从iios/12DDWDFF@122中提取12DDWDFF</span><br><span class="line"></span><br><span class="line">const char* s = &quot;iios/12DDWDFF@122&quot;;</span><br><span class="line">char buf[20];</span><br><span class="line">sscanf(s, &quot;%*[^/]/%[^@]&quot;, buf);</span><br></pre></td></tr></table></figure>
+
+<h2 id="n-一个等于读取字符数量的整数"><a href="#n-一个等于读取字符数量的整数" class="headerlink" title="%n 一个等于读取字符数量的整数"></a>%n 一个等于读取字符数量的整数</h2><p>%n输出的是截止到%n之前的有效字符数量，在scanf和printf中都可使用。与%n相对应的形参是一个int类型的指针，%n不影响scanf和printf的返回值，如：</p>
+<p>scanf(“%d %d%n”, &amp;i, &amp;j, &amp;k);<br>如果输入123空格空格4567，则k等于9，因为这9个字符都成功输入而scanf的返回值仍然为2.<br>scanf(“%c%n%c”, &amp;ch1, &amp;k,&amp;ch2);<br>输入“sbcdefdg”后，k等于1，scanf的返回值仍然为2.</p>
+<p>同理%n用在printf函数里，表示也是输出的字符数量。若放到最后则与printf()的返回值相同，如：<br>printf(“a=%d, b=%d\n%n”, i, j, &amp;k);<br>在a=123，b=456的情况下，k=12，同时%n不影响printf的返回值，其返回值仍然为12，而不是14。</p>
+<h3 id="scanf-的返回值"><a href="#scanf-的返回值" class="headerlink" title="scanf 的返回值"></a>scanf 的返回值</h3><p>1、scanf() 函数有返回值且类型 int 型，当发生错误时立刻返回 EOF。<br>2、scanf() 函数返回的值为：正确按指定格式输入变量的个数；也即能正确接收到值的变量个数</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/14/20200214_1/" data-id="ck6lmy7ik000pp8vagi2sl8tl"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/02/13/20200213_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

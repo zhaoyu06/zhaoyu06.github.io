@@ -24,15 +24,15 @@
   <section class="outer">
   
 
-<article id="post-200121" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+<article id="post-20200220_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
   
   <div class="article-inner">
     
 
     
       <div class="article-meta">
-        <a href="/2020/01/21/200121/" class="article-date">
-  <time datetime="2020-01-21T04:06:53.423Z" itemprop="datePublished">2020-01-21</time>
+        <a href="/2020/02/20/20200220_1/" class="article-date">
+  <time datetime="2020-02-20T03:11:38.139Z" itemprop="datePublished">2020-02-20</time>
 </a>
         
       </div>
@@ -56,23 +56,16 @@
 
       
         <blockquote>
-<p> <strong>少年安得长少年，海波尚变为桑田。——李贺</strong></p>
+<p><strong>无冥冥之志者，无昭昭之明；无惛惛之事者，无赫赫之功。</strong></p>
 </blockquote>
-<h5 id="取整方法总结"><a href="#取整方法总结" class="headerlink" title="取整方法总结"></a>取整方法总结</h5><a id="more"></a>
-<p>1.直接赋值给整数变量<br>    int i = 3.5; 或 i = (int) 3.5;<br>2.整数除法运算符‘ / ’取整<br>    ‘ / ’本身就有取整功能(int / int)，可是整数除法对负数的取整结果和使用的C编译器有关。<br>3.使用floor函数<br>    floor(x)返回的是小于或等于x的最大整数。<br>如：<br><code>floor(3.5) = 3</code><br><code>floor(-3.5) = -4</code><br>    4、使用ceil函数<br>    ceil(x)返回的是大于x的最小整数。如：</p>
-<pre><code>ceil(3.5) = 4
+<h3 id="笔记（八）"><a href="#笔记（八）" class="headerlink" title="笔记（八）"></a>笔记（八）</h3><a id="more"></a>
+<p>string find 的返回值问题</p>
+<p>返回 string::npos或-1 或最大值<br>string.find（）没有找到时返回的是一个非常大的值，由于整数在计算机中是依照补码形式存放的，一个高位的整数在少一位的整数表示时假设高位的第二位是1，那么少一位的表示下就是负数，假设高位整数的第二位包含第二位之后全是1，那么在少一位的表示下就是-1。string.find()返回的那个非常大的数是2的32次方，而在用4个字节表示的int，long整形，最多仅仅能表示到2的31次方，2的32次方减一存储的后32位的值和-1的补码全然同样：11111111 11111111 11111111 11111111；<br>假设赋值给int或者long类型的变量自然就是-1。</p>
 
-ceil(-3.5) = -3
-
-floor()是向负无穷大舍入，floor(-3.5)  = -4。
-
-ceil()是向正无穷大舍入。ceil(-3.5)  = -3。
-
-可是在C里面ceil和floor()函数是返回double型。</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/21/200121/" data-id="ck6u66ohh0005i8vag0myozsb"
+      <a data-url="http://yoursite.com/2020/02/20/20200220_1/" data-id="ck6u66oj4000ui8vawnl18j9q"
          class="article-share-link">Share</a>
       
     </footer>
@@ -83,17 +76,8 @@ ceil()是向正无穷大舍入。ceil(-3.5)  = -3。
     
   <nav class="article-nav">
     
-      <a href="/2020/01/22/20200122_1/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            (no title)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/01/20/20200120_1/" class="article-nav-link">
+      <a href="/2020/02/19/20200219_1/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
         <div class="article-nav-title"></div>
       </a>

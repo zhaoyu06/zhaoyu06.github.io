@@ -24,15 +24,15 @@
   <section class="outer">
   
 
-<article id="post-200121" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+<article id="post-20200221_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
   
   <div class="article-inner">
     
 
     
       <div class="article-meta">
-        <a href="/2020/01/21/200121/" class="article-date">
-  <time datetime="2020-01-21T04:06:53.423Z" itemprop="datePublished">2020-01-21</time>
+        <a href="/2020/02/21/20200221_1/" class="article-date">
+  <time datetime="2020-02-21T02:15:39.903Z" itemprop="datePublished">2020-02-21</time>
 </a>
         
       </div>
@@ -56,23 +56,23 @@
 
       
         <blockquote>
-<p> <strong>少年安得长少年，海波尚变为桑田。——李贺</strong></p>
+<p><strong>心甘情愿才会理所当然 理所当然才会义无反顾</strong></p>
 </blockquote>
-<h5 id="取整方法总结"><a href="#取整方法总结" class="headerlink" title="取整方法总结"></a>取整方法总结</h5><a id="more"></a>
-<p>1.直接赋值给整数变量<br>    int i = 3.5; 或 i = (int) 3.5;<br>2.整数除法运算符‘ / ’取整<br>    ‘ / ’本身就有取整功能(int / int)，可是整数除法对负数的取整结果和使用的C编译器有关。<br>3.使用floor函数<br>    floor(x)返回的是小于或等于x的最大整数。<br>如：<br><code>floor(3.5) = 3</code><br><code>floor(-3.5) = -4</code><br>    4、使用ceil函数<br>    ceil(x)返回的是大于x的最小整数。如：</p>
-<pre><code>ceil(3.5) = 4
+<h4 id="向量的叉乘"><a href="#向量的叉乘" class="headerlink" title="向量的叉乘"></a>向量的叉乘</h4><a id="more"></a>
+<p>向量a（x1，y1），向量b（x2，y2)<br>向量a点乘向量b等于x1x2＋y1y2<br>若给定两个向量的坐标：<br>a=(a1，b1，c1)</p>
+<p>b=(a2，b2，c2)</p>
+<p>则向量a×向量b=</p>
+<p>|i  j   k|<br>|a1 b1 c1|<br>|a2 b2 c2|</p>
+<p>=(b1c2-b2c1，c1a2-a1c2，a1b2-a2b1)</p>
+<p>与点积不同，它的运算结果是一个向量而不是一个标量。并且两个向量的叉积与这两个向量和垂直。</p>
+<h3 id="判断p点是否在三角形内"><a href="#判断p点是否在三角形内" class="headerlink" title="判断p点是否在三角形内"></a>判断p点是否在三角形内</h3><h5 id="利用向量的叉乘法"><a href="#利用向量的叉乘法" class="headerlink" title="利用向量的叉乘法"></a>利用向量的叉乘法</h5><p> ①先获取三个点abc的坐标，p的坐标</p>
+<p> ②计算出pa pb pc (向量 = 终点坐标-起点坐标)</p>
+<p> ③pa叉乘pb pa叉乘pc pb叉乘pc ，三者的值同为负号或者正号，即p点在三角形内 （叉乘公式：向量a的x坐标 * 向量b的y坐标 - 向量b的x坐标 * 向量a的y坐标）</p>
 
-ceil(-3.5) = -3
-
-floor()是向负无穷大舍入，floor(-3.5)  = -4。
-
-ceil()是向正无穷大舍入。ceil(-3.5)  = -3。
-
-可是在C里面ceil和floor()函数是返回double型。</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/01/21/200121/" data-id="ck6vjmlsa000bbovaat4ziou4"
+      <a data-url="http://yoursite.com/2020/02/21/20200221_1/" data-id="ck6vjmlss000wbovaon8e1wmf"
          class="article-share-link">Share</a>
       
     </footer>
@@ -83,17 +83,8 @@ ceil()是向正无穷大舍入。ceil(-3.5)  = -3。
     
   <nav class="article-nav">
     
-      <a href="/2020/01/22/20200122_1/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            (no title)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/01/20/20200120_1/" class="article-nav-link">
+      <a href="/2020/02/20/20200220_1/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
         <div class="article-nav-title"></div>
       </a>

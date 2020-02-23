@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200223_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/02/23/20200223_1/" class="article-date">
+  <time datetime="2020-02-23T02:09:23.641Z" itemprop="datePublished">2020-02-23</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h3 id="快速幂-矩阵"><a href="#快速幂-矩阵" class="headerlink" title="快速幂 矩阵"></a>快速幂 矩阵</h3><a id="more"></a>
+<h4 id="1-快速乘"><a href="#1-快速乘" class="headerlink" title="1.快速乘"></a>1.快速乘</h4><p>快速乘是利用乘法分配律将a*b分解成多个式子相加（将后面一个乘数转化为二进制的形式计算）求解。例如：<br><code>12 * 1=12 * 1011(2)=12 * 2^3 + 12 * 2^1 + 12 * 2^0 = 96+24+12=132</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">qmul</span><span class="params">(<span class="keyword">long</span> <span class="keyword">long</span> x,<span class="keyword">long</span> <span class="keyword">long</span> y,<span class="keyword">long</span> <span class="keyword">long</span> mod)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> res=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(y)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(y&amp;<span class="number">1</span>)res=(res+x)%mod;</span><br><span class="line">        x=(x&lt;&lt;<span class="number">1</span>)%mod;</span><br><span class="line">        y=y&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-快速幂"><a href="#2-快速幂" class="headerlink" title="2.快速幂"></a>2.快速幂</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b, ll mod)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(b &amp; <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            res=(res * a)%mod;</span><br><span class="line">        &#125;</span><br><span class="line">        a=(a*a) % mod;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="求逆元"><a href="#求逆元" class="headerlink" title="求逆元"></a>求逆元</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">inv</span><span class="params">(ll a,ll mod)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> qpow(a,mod<span class="number">-2</span>,mod);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-矩阵乘法"><a href="#3-矩阵乘法" class="headerlink" title="3.矩阵乘法"></a>3.矩阵乘法</h4><h5 id="矩阵"><a href="#矩阵" class="headerlink" title="矩阵"></a>矩阵</h5><p>加/减法：对于同型矩阵A，B，其加/减法就是把相应位置的元素直接加/减：<br>数乘：对于常数 λ 以及矩阵A，将矩阵中所有元素直接乘以常数就是矩阵的数乘。<br>转置：将矩阵A的行列交换得到的新矩阵AT ，我们称这一过程为矩阵的转置。<br>乘法：当且仅当矩阵A的列数等于矩阵B的行数时(比如Anm和Bmk)，我们才能定义矩阵的乘法，他们的乘积C是一个n*k的矩阵——Cnk 。此乘积可记为 C = AB。<br><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAwYAAABiCAMAAADdlTQ3AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAMAUExURf////f39wAAAO/m5t7m3tbWzgAICISEjNbW3mNaWnt7e62tpTExMZScnEI6Qr3FxUJKQikpKRAICHNzc7Wttb29vRkZIYRa74RaxZxaUlqM5msQUhlCUpxaGWsQGRlazhlahGtrY8XFznt7hFJKUoQIjJSMlFJaWhAZELVa7zoQUr3mpebWOuZaOjpaGWtaOnuca3talOaMteY6tRAQUrVaxebWEOZaEGtaEOZjteYQtebWY0pazuZaY0pahIzOpTo6Or1aUlrv5lqt5msxUhljUr1aGWsxGRla7xlapVrO5r3m3rXvY0rvY0qtY0reMbUpjEoZ70oZpeaUhOYZhErOY7UIjKWlnOaM5uY65ua17+Zj5uYQ5hBCGYTOEBmMEObWhEpa7+ZahEpapYzvpSmMpQiMpbWMnLXOEEqMEDEQCOa1xeberea1pb2l5oSlOoQp7xBjGYSlEIQpxYTOMRmMMSmM5pwpUlqMtZwpGZTO74TOcxmMcxnvEBkpzhkphITvEBmtEL2E5oSEOoQI74SEEIQIxQiM5pwIUlqMlJwIGZTOzoTOUhmMUhnOEBkIzhkIhCmtpSnvpQjvpQitpSnOpQjOpbWlOrUp7+alOuYpOoyl77WlELUpxealEOYpEIylxbXOMUqMMbXOc0qMc0rvEEopzkophOalY+YpY7XvEEqtELWEOrUI7+aEOuYIOoyE77WEELUIxeaEEOYIEIyExbXOUkqMUkrOEEoIzkoIhOaEY+YIY72la71anCmt5r0pUinv5lqttb0pGZTv74TvMRmtMVrvtYTvcxmtcxnvMRkp7xkppRnvc4QpnJyla5xanAjv5lrOtRnOc72Ea71aewit5r0IUinO5lqtlL0IGZTvzlrvlITvUhmtUhnOMRkI7xkIpRnvUoQpe5yEa5xaewjO5lrOlBnOUrXvMUqtMb2MvTo6EL3FnDoQKUJaWub3peb3Qr3F5ub31ub3c+b3EHtSc3t7Y+/ezu/W797m9/fm9+b3/9739//3/wAAAHNaf+UAAAEAdFJOU////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wBT9wclAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAgRElEQVR4Xu1d65aiupeXJBYKQYOKn+YLaRbwGLwF71DvXqs/9qrWcc3OhVwQolXn9Ez7H36nTxVaGGHv7HuyWS1YsGDBggULFixYsGDBggULFixYsGDBggULFixYsODvBC76ND1xcUjSLC2wfHcWXJ4Jv9M0zfTxggWvjlOO3iiN4WiTnBFqs5AcXPYNlQckoRQhdbxgwcvjlOccryI4it9PmwSheRWPi4oOUx+vcIKYOl6w4NVR5PQqD3iWRSteoky+mgTe13mrj1er7LxYgwX/IUhzPZk5B5MQxSExWK3W7KyPwHq0izVY8B+CglInGuBlHox7efeuj0AMDjt9tGDBi8NYA4H9lhF9OI29Yw2W2GDBfwwca7BuaIu2wYwpZzY2iNtOHy1Y8Nq4noYQWWRBy233FofsQdHl+mh1SQ6LNVjwrwCTDSFhP+Qf4wbfsCFzSr7I6UUfCqQHJGoIc+A71xoEM0Wf4taCpmXBX4fP0FQRgMn0DbY+GJYkCJ131Z+VA1LlLZpLAEUfORVFgwG/c5TowynsrTWIwtaAlwjlXbPIwSsBN/kZBSdAsUOI7n7oV08CNzQ47CZBZcHXrjr+A+CblM3q+JOXKVphFqYCa83Fhq3BpkRJwTf61YLXAOFFhUr9YgoFPfScf1Vvk81Hgxr94h6kRKk+/KP4TObFYMgUYSkNOM9r+XIaTqbokTXYokIfGqiveCXgIW56En/Yv/0DGLMkSsJ6kObfucfbLZ6Xrhs4RWNnBZwvfRQE5msedtEw53yjz4DveWgNTqn4vUfVXr6cBmdu3SCUKZqQcMx/q9/BC78QuPAgDfBmzX8HhriJEf7hCfoCirX6/Rww0UWXzzAPrw+c69uaGNZNI0xCQWqgYeAU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" alt="image"></p>
+<h5 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h5><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">matrix</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> row,col;</span><br><span class="line">    <span class="keyword">int</span> num[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line">&#125;a,b;</span><br><span class="line"><span class="function">matrix <span class="title">mxmul</span><span class="params">(matrix a,matrix b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    matrix c;</span><br><span class="line">    c.row=a.row,c.col=b.col;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=c.row;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=c.col;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            c.num[i][j]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>;k&lt;=a.col;k++)</span><br><span class="line">            &#123;</span><br><span class="line">                c.num[i][j]+=a.num[i][k]*b.num[k][j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="矩阵快速幂"><a href="#矩阵快速幂" class="headerlink" title="矩阵快速幂"></a>矩阵快速幂</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">matrix</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> row,col;</span><br><span class="line">    <span class="keyword">int</span> num[<span class="number">105</span>][<span class="number">105</span>];</span><br><span class="line">&#125; a,b;</span><br><span class="line"><span class="function">matrix <span class="title">mxmul</span><span class="params">(matrix a,matrix b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    matrix c;</span><br><span class="line">    c.row=a.row,c.col=b.col;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>; i&lt;=c.row; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>; j&lt;=c.col; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            c.num[i][j]=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">1</span>; k&lt;=a.col; k++)</span><br><span class="line">            &#123;</span><br><span class="line">                c.num[i][j]+=(a.num[i][k]*b.num[k][j])%mod;</span><br><span class="line">                c.num[i][j]%=mod;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">matrix <span class="title">pow_mod</span><span class="params">(matrix a,<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    matrix b;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;<span class="number">2</span>; i++) <span class="comment">//初始化单位矩阵</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">2</span>; j++)</span><br><span class="line">            a.num[i][j]=i==j?<span class="number">1</span>:<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(n&amp;<span class="number">1</span>)	b=mxmul(b,a);</span><br><span class="line">        a=mxmul(a,a);</span><br><span class="line">        n=n&gt;&gt;<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/23/20200223_1/" data-id="ck6yea2260014ygvazjkszd9p"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/02/22/20200222_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

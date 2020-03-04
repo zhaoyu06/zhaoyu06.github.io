@@ -24,15 +24,15 @@
   <section class="outer">
   
 
-<article id="post-20200220_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+<article id="post-20200304_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
   
   <div class="article-inner">
     
 
     
       <div class="article-meta">
-        <a href="/2020/02/20/20200220_1/" class="article-date">
-  <time datetime="2020-02-20T03:11:38.139Z" itemprop="datePublished">2020-02-20</time>
+        <a href="/2020/03/04/20200304_1/" class="article-date">
+  <time datetime="2020-03-04T02:09:25.207Z" itemprop="datePublished">2020-03-04</time>
 </a>
         
       </div>
@@ -40,8 +40,6 @@
 
     
       
-    <div class="tocbot"></div>
-
 
 
 
@@ -56,16 +54,15 @@
 
       
         <blockquote>
-<p><strong>无冥冥之志者，无昭昭之明；无惛惛之事者，无赫赫之功。</strong></p>
+<p><strong>星光不问赶路人 时光不负有心人</strong></p>
 </blockquote>
-<h3 id="笔记（八）"><a href="#笔记（八）" class="headerlink" title="笔记（八）"></a>笔记（八）</h3><a id="more"></a>
-<p>string find 的返回值问题</p>
-<p>存在返回第一次出现的位置<br>不存在返回 string::npos或-1 或最大值<br>string.find（）没有找到时返回的是一个非常大的值，由于整数在计算机中是依照补码形式存放的，一个高位的整数在少一位的整数表示时假设高位的第二位是1，那么少一位的表示下就是负数，假设高位整数的第二位包含第二位之后全是1，那么在少一位的表示下就是-1。string.find()返回的那个非常大的数是2的32次方，而在用4个字节表示的int，long整形，最多仅仅能表示到2的31次方，2的32次方减一存储的后32位的值和-1的补码全然同样：11111111 11111111 11111111 11111111；<br>假设赋值给int或者long类型的变量自然就是-1。</p>
-
+<a id="more"></a>
+<p>嘿嘿嘿，自己写的一个自动登录脚本，有点弱</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ==UserScript==</span></span><br><span class="line"><span class="comment">// @name         New Userscript</span></span><br><span class="line"><span class="comment">// @namespace    http://tampermonkey.net/</span></span><br><span class="line"><span class="comment">// @version      0.1</span></span><br><span class="line"><span class="comment">// @description  try to take over the world!</span></span><br><span class="line"><span class="comment">// @author       You</span></span><br><span class="line"><span class="comment">// @match        acm.hrbust.edu.cn</span></span><br><span class="line"><span class="comment">// @grant        none</span></span><br><span class="line"><span class="comment">// ==/UserScript==</span></span><br><span class="line"></span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="meta">    'use strict'</span>;</span><br><span class="line">    <span class="comment">// Your code here...</span></span><br><span class="line">    $(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="string">"#header_login_button"</span>).click();</span><br><span class="line">        $(<span class="string">"#global_username"</span>).val(<span class="string">"1804010230"</span>);</span><br><span class="line">        $(<span class="string">"#global_password"</span>).val(<span class="string">"密码"</span>);</span><br><span class="line">        $(<span class="string">"#global_login_submit"</span>).click();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/02/20/20200220_1/" data-id="ck7coof4u0018ngva5rx2vi8y"
+      <a data-url="http://yoursite.com/2020/03/04/20200304_1/" data-id="ck7coof4s0016ngva547cng7n"
          class="article-share-link">Share</a>
       
     </footer>
@@ -76,17 +73,8 @@
     
   <nav class="article-nav">
     
-      <a href="/2020/02/21/20200221_1/" class="article-nav-link">
-        <strong class="article-nav-caption">Newer posts</strong>
-        <div class="article-nav-title">
-          
-            (no title)
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/02/19/20200219_1/" class="article-nav-link">
+      <a href="/2020/03/03/20200303_1/" class="article-nav-link">
         <strong class="article-nav-caption">Olde posts</strong>
         <div class="article-nav-title"></div>
       </a>

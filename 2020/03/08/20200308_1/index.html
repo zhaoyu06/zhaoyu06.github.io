@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200308_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/03/08/20200308_1/" class="article-date">
+  <time datetime="2020-03-08T02:33:54.795Z" itemprop="datePublished">2020-03-08</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h3 id="python-的一些输入方式"><a href="#python-的一些输入方式" class="headerlink" title="python 的一些输入方式"></a>python 的一些输入方式</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Python的输入是野生字符串，所以要自己转类型</span><br><span class="line">strip去掉左右两端的空白符，返回str</span><br><span class="line">slipt把字符串按空白符拆开，返回[str]</span><br><span class="line">map把list里面的值映射到指定类型，返回[type]</span><br><span class="line">EOF用抓异常</span><br><span class="line">print后面加逗号就不会换行，否则反之，当然3.x君自行传参</span><br><span class="line">题目细节没看太细，可能有的地方不对，不要在意这些细节啦</span><br></pre></td></tr></table></figure>
+
+<h4 id="有多组输入数据，但没有具体的告诉你有多少组，只是让你对应每组输入，应该怎样输出。"><a href="#有多组输入数据，但没有具体的告诉你有多少组，只是让你对应每组输入，应该怎样输出。" class="headerlink" title="有多组输入数据，但没有具体的告诉你有多少组，只是让你对应每组输入，应该怎样输出。"></a>有多组输入数据，但没有具体的告诉你有多少组，只是让你对应每组输入，应该怎样输出。</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        a, b = map(int, raw_input().strip().split())</span><br><span class="line">        <span class="keyword">print</span> a + b</span><br><span class="line">    <span class="keyword">except</span> EOFError:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 输入一个整数，告诉我们接下来有多少组数据，然后在输入每组数据的具体值。</span></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line">tcase = int(raw_input().strip())</span><br><span class="line"><span class="keyword">for</span> case <span class="keyword">in</span> range(tcase):</span><br><span class="line">    a, b = map(int, raw_input().strip().split())</span><br><span class="line">    <span class="keyword">print</span> a + b</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 有多组输入数据，没有具体的告诉你有多少组,但是题目却告诉你遇见什么结束</span></span><br><span class="line"></span><br><span class="line">``` python</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    a, b = map(int, raw_input().strip().split())</span><br><span class="line">    <span class="keyword">if</span> a == <span class="number">0</span> <span class="keyword">and</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">print</span> a + b</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 输入有多组，并却题目告诉你每组输入遇见什么结束，与第三种不同之处在于，每组输入都有相应的细化。</span></span><br><span class="line"></span><br><span class="line">```    python</span><br><span class="line">tcase = int(raw_input().strip())</span><br><span class="line"><span class="keyword">for</span> case <span class="keyword">in</span> range(tcase):</span><br><span class="line">    a, b = map(int, raw_input().strip().split())</span><br><span class="line">    <span class="keyword">if</span> a == <span class="number">0</span> <span class="keyword">and</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">print</span> a + b</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 这次的输入实现输入一个整数，告诉我们有多少行，在输入每一行。对于每一行的输入，有划分为第一个数和其他的数，第一个数代表那一组数据一共有多少输入。</span></span><br><span class="line"></span><br><span class="line">``` python</span><br><span class="line">tcase = int(raw_input().strip())</span><br><span class="line"><span class="keyword">for</span> case <span class="keyword">in</span> range(tcase):</span><br><span class="line">    data = map(int, raw_input().strip().split())</span><br><span class="line">    n, array = data[<span class="number">0</span>], data[<span class="number">1</span>:]</span><br><span class="line">    </span><br><span class="line">    sum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">        sum += array[i]</span><br><span class="line">    <span class="keyword">print</span> sum</span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 有多种输入数据，对于每组输入数据的第一个数代表该组数据接下来要输入数据量</span></span><br><span class="line"></span><br><span class="line">``` python</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        data = map(int, raw_input().strip().split())</span><br><span class="line">        n, array = data[<span class="number">0</span>], data[<span class="number">1</span>:]</span><br><span class="line">            </span><br><span class="line">        sum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            sum += array[i]</span><br><span class="line">        <span class="keyword">print</span> sum</span><br><span class="line">    <span class="keyword">except</span> EOFError:</span><br><span class="line">        <span class="keyword">raise</span></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 这道题的输出只是简单的在每组输出后边多加一个换行而已！</span></span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        a, b = map(int, raw_input().strip().split())</span><br><span class="line">        <span class="keyword">print</span> a + b</span><br><span class="line">    <span class="keyword">except</span> EOFError:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">```    </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 这种类型的输出注意的就是换行，这类题目说在输出样例中，每组样例之间有什么什么，所以我们在对应输出的同时要判断一下是否是最后一组输出，如果不是，就 将题目所说的东西输出（一般是换行或空格），如果是，就直接结束。</span></span><br><span class="line"></span><br><span class="line">``` python</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data = raw_input().strip()</span><br><span class="line">    <span class="keyword">if</span> data.isspace():</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        data = map(int, data)</span><br><span class="line">        n, array = data[<span class="number">0</span>], data[<span class="number">1</span>:]</span><br><span class="line">                </span><br><span class="line">        sum = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">            sum += array[i]</span><br><span class="line">        <span class="keyword">print</span> sum</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/03/08/20200308_1/" data-id="ck7ifc2lm001bv0vazxv45khr"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/03/07/20200307_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

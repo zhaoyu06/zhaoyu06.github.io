@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zyu</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200419_1" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/04/19/20200419_1/" class="article-date">
+  <time datetime="2020-04-19T06:03:46.384Z" itemprop="datePublished">2020-04-19</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <blockquote>
+<p>慎终如始，则无败事</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="strlen-和-sizeof"><a href="#strlen-和-sizeof" class="headerlink" title="strlen 和 sizeof"></a>strlen 和 sizeof</h3><p>strlen 是函数，sizeof 是运算符。</p>
+<p>strlen 测量的是字符的实际长度，以’\0’ 结束，也就是说不算最后的’\0’;</p>
+<p>而sizeof 测量的是字符的分配大小,包括最后的’\0’;</p>
+<p>帮助记忆的话，可以理解成运算符更加底层一下，会输出真实的内存占用情况，而函数有封装，会处理成用户想要看到的内容</p>
+<p>%nd 是指输出占 n 个字符宽，数字前面有负号是左对齐。</p>
+<h3 id="c-中的指针和引用"><a href="#c-中的指针和引用" class="headerlink" title="c++ 中的指针和引用"></a>c++ 中的指针和引用</h3><h4 id="指针和引用的定义和性质区别："><a href="#指针和引用的定义和性质区别：" class="headerlink" title="指针和引用的定义和性质区别："></a>指针和引用的定义和性质区别：</h4><p>(1)指针：指针是一个变量，只不过这个变量存储的是一个地址，指向内存的一个存储单元；而引用跟原来的变量实质上是同一个东西，只不过是原变量的一个别名而已。如：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>;<span class="keyword">int</span> *p=&amp;a;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a=<span class="number">1</span>;<span class="keyword">int</span> &amp;b=a;</span><br></pre></td></tr></table></figure>
+
+<p>上面定义了一个整形变量和一个指针变量p，该指针变量指向a的存储单元，即p的值是a存储单元的地址。</p>
+<p>而下面2句定义了一个整形变量a和这个整形a的引用b，事实上a和b是同一个东西，在内存占有同一个存储单元。</p>
+<p>(2)可以有const指针，但是没有const引用；</p>
+<p>(3)指针可以有多级，但是引用只能是一级（int **p；合法 而 int &amp;&amp;a是不合法的）</p>
+<p>(4)指针的值可以为空，但是引用的值不能为NULL，并且引用在定义的时候必须初始化；</p>
+<p>(5)指针的值在初始化后可以改变，即指向其它的存储单元，而引用在进行初始化后就不会再改变了。</p>
+<p>(6)”sizeof引用”得到的是所指向的变量(对象)的大小，而”sizeof指针”得到的是指针本身的大小；</p>
+<p>(7)指针和引用的自增(++)运算意义不一样；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/04/19/20200419_1/" data-id="ck96nb5fl001gr8vamuu81w39"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+    
+      <a href="/2020/04/05/20200405_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zyu</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zyu"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

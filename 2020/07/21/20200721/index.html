@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zhaoyu&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200721" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/07/21/20200721/" class="article-date">
+  <time datetime="2020-07-21T08:34:56.510Z" itemprop="datePublished">2020-07-21</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><a id="more"></a>
+<h2 id="堆栈-stack"><a href="#堆栈-stack" class="headerlink" title="堆栈(stack)"></a>堆栈(stack)</h2><p>具有一定操作约束的线性表，只在一端（栈顶，Top）做插入删除</p>
+<ul>
+<li>插入数据：入栈（Push）</li>
+<li>删除数据：出栈（Pop）</li>
+<li>后入先出：Last In First Out(LIFO)</li>
+</ul>
+<h3 id="栈的顺序存储实现"><a href="#栈的顺序存储实现" class="headerlink" title="栈的顺序存储实现"></a>栈的顺序存储实现</h3><p>栈的顺序存储结构通常由一个一维数组和一个记录栈顶元素位置的变量组成</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 100</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElementType int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Stack</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span>&#123;</span></span><br><span class="line">    ElementType Data[MaxSize];</span><br><span class="line">    <span class="keyword">int</span> top;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push</span><span class="params">(Stack Ptrs,ElementType item)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Ptrs-&gt;top==MaxSize<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"堆栈满"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        Ptrs-&gt;Data[++(Ptrs-&gt;top)]=item;</span><br><span class="line">        <span class="keyword">return</span> ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack Ptrs)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(Ptrs-&gt;top==<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;<span class="string">"堆栈空"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> (Ptrs-&gt;Data[(ptrs-&gt;top--)]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="堆栈的链式存储"><a href="#堆栈的链式存储" class="headerlink" title="堆栈的链式存储"></a>堆栈的链式存储</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ElementType int</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Stack</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Next</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">///S相当于头节点内无元素</span></span><br><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* 构建一个堆栈的头结点，返回指针 */</span></span><br><span class="line">    Stack S;</span><br><span class="line">    S =(Stack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">    S-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Stack S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*判断堆栈S是否为空，若为空函数返回整数1，否</span></span><br><span class="line"><span class="comment">    则返回0 */</span></span><br><span class="line">    <span class="keyword">return</span> ( S-&gt;Next == <span class="literal">NULL</span> );</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">( ElementType item, Stack S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* 将元素item压入堆栈S */</span><span class="comment">///头插法</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">TmpCell</span>;</span></span><br><span class="line">    TmpCell=(struct SNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">    TmpCell-&gt;Data = item;</span><br><span class="line">    TmpCell-&gt;Next = S-&gt;Next;</span><br><span class="line">    S-&gt;Next = TmpCell;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/* 删除并返回堆栈S的栈顶元素 */</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">FirstCell</span>;</span></span><br><span class="line">    ElementType TopElem;</span><br><span class="line">    <span class="keyword">if</span>( IsEmpty( S ) )</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"堆栈空"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        FirstCell = S-&gt;Next;</span><br><span class="line">        S-&gt;Next = FirstCell-&gt;Next;</span><br><span class="line">        TopElem = FirstCell -&gt;Data;</span><br><span class="line">        <span class="built_in">free</span>(FirstCell);</span><br><span class="line">        <span class="keyword">return</span> TopElem;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="堆栈的应用（表达式求值）"><a href="#堆栈的应用（表达式求值）" class="headerlink" title="堆栈的应用（表达式求值）"></a>堆栈的应用（表达式求值）</h3><h4 id="后缀表达式和中缀表达式"><a href="#后缀表达式和中缀表达式" class="headerlink" title="后缀表达式和中缀表达式"></a>后缀表达式和中缀表达式</h4><p>中缀表达式：运算符号位于两个运算数之间。如 ，a + b * c - d / e</p>
+<p>后缀表达式：运算符号位于两个运算数之后。如 a b c * + d e / -</p>
+<h4 id="后缀表达式求值"><a href="#后缀表达式求值" class="headerlink" title="后缀表达式求值"></a>后缀表达式求值</h4><p>循环：依次顺序读入表达式的符号序列（假设以 = 作为输入序列的结束），并根据读入的元素逐一分析</p>
+<p>1.当遇到的是一个操作数，则压入栈顶</p>
+<p>2.当遇到的是一个运算符，就从栈中两次取出栈顶，按照运算符对这两个操作数进行计算。然后将计算结果压入栈顶</p>
+<p>如此继续，直到遇到 = ，这时栈顶的值就是输入的表达式的值</p>
+<h4 id="中缀表达式求值"><a href="#中缀表达式求值" class="headerlink" title="中缀表达式求值"></a>中缀表达式求值</h4><p>方法：将中缀表达式转换为后缀表达式，然后求值</p>
+<p><strong>如何将中缀表达式转换为后缀</strong></p>
+<p>例如：2+9/3-5     2 9 3 / + 5 - </p>
+<p>从头到尾读取中缀表达式的每个对象，对不同对象按不同的情况处理。</p>
+<p>运算数：</p>
+<p>① 直接输出；</p>
+<p>② 左括号：压入堆栈；</p>
+<p>③ 右括号：将栈顶的运算符弹出并输出，直到遇到左括号（出栈，不输出）； </p>
+<p>④ 运算符： </p>
+<p>​    • 若优先级大于栈顶运算符时，则把它压栈； </p>
+<p>​    • 若优先级小于等于栈顶运算符时，将栈顶运算符弹出并输出；再比 较新的栈顶运算符，直到该      运算符大于栈顶运算符优先级为止，然后将该运算符压栈； </p>
+<p>⑤ 若各对象处理完毕，则把堆栈中存留的运算符一并输出。</p>
+<p><strong>中缀表达式转后缀表达式</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;vec;</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt;stk;</span><br><span class="line"><span class="built_in">string</span> str;</span><br><span class="line"><span class="keyword">int</span> pro[<span class="number">50</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    pro[<span class="string">'+'</span>]=<span class="number">1</span>,pro[<span class="string">'-'</span>]=<span class="number">1</span>,pro[<span class="string">'*'</span>]=<span class="number">2</span>,pro[<span class="string">'/'</span>]=<span class="number">2</span>;</span><br><span class="line">    pro[<span class="string">'('</span>]=<span class="number">99</span>,pro[<span class="string">')'</span>]=<span class="number">99</span>;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;str;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="keyword">int</span>)str.length();)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">char</span> ch=str[i];</span><br><span class="line">        <span class="keyword">if</span>(ch&gt;=<span class="string">'0'</span>&amp;&amp;ch&lt;=<span class="string">'9'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            vec.push_back(ch);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(ch==<span class="string">'('</span>)&#123;</span><br><span class="line">                stk.push(ch);</span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(ch==<span class="string">')'</span>)&#123;</span><br><span class="line">                <span class="keyword">while</span>(!stk.empty()&amp;&amp;stk.top()!=<span class="string">'('</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    vec.push_back(stk.top());</span><br><span class="line">                    stk.pop();</span><br><span class="line">                &#125;</span><br><span class="line">                stk.pop();<span class="comment">//弹出左括号</span></span><br><span class="line">                i++;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(stk.empty())&#123;</span><br><span class="line">                stk.push(ch);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(pro[ch]&gt;pro[stk.top()]||stk.top()==<span class="string">'('</span>)</span><br><span class="line">                &#123;</span><br><span class="line">                    stk.push(ch);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="keyword">while</span>(!stk.empty()&amp;&amp;stk.top()!=<span class="string">'('</span>&amp;&amp;pro[ch]&lt;=pro[stk.top()])</span><br><span class="line">                    &#123;</span><br><span class="line">                        vec.push_back(stk.top());</span><br><span class="line">                        stk.pop();</span><br><span class="line">                    &#125;</span><br><span class="line">                    stk.push(ch);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(!stk.empty())&#123;</span><br><span class="line">        vec.push_back(stk.top());</span><br><span class="line">        stk.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;(<span class="keyword">int</span>)vec.size();i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;vec[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="洛谷P1449"><a href="#洛谷P1449" class="headerlink" title="洛谷P1449"></a>洛谷P1449</h4><p>所谓后缀表达式是指这样的一个表达式：式中不再引用括号，运算符号放在两个运算对象之后，所有计算按运算符号出现的顺序，严格地由左而右新进行（不用考虑运算符的优先级）。</p>
+<p>如：3<em>(5–2)+7对应的后缀表达式为：3．5．2．-</em>7．+@。’@’为表达式的结束符号。‘.’为操作数的结束符号。</p>
+<p>输出格式</p>
+<p>输出：表达式的值</p>
+<p>输入输出样例</p>
+<p><strong>输入 #1</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.5.2.-*7.+@</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出 #1</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">16</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">char</span> a[<span class="number">1005</span>];</span><br><span class="line"><span class="keyword">int</span> sum,k;</span><br><span class="line"><span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt;stk;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    gets(a);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;a[i]!=<span class="string">'@'</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]==<span class="string">'.'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sum=<span class="number">0</span>,k=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i<span class="number">-1</span>;j&gt;=<span class="number">0</span>&amp;&amp;a[j]&gt;=<span class="string">'0'</span>&amp;&amp;a[j]&lt;=<span class="string">'9'</span>;j--)</span><br><span class="line">            &#123;</span><br><span class="line">                sum+=(a[j]<span class="number">-48</span>)*k;</span><br><span class="line">                k*=<span class="number">10</span>;</span><br><span class="line">                </span><br><span class="line">            &#125;</span><br><span class="line">            stk.push(sum);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(a[i]&gt;=<span class="string">'0'</span>&amp;&amp;[i]&lt;=<span class="string">'9'</span>)<span class="keyword">continue</span>;</span><br><span class="line">        sum=stk.top();</span><br><span class="line">        stk.pop();</span><br><span class="line">        <span class="keyword">if</span>(a[i]==<span class="string">'+'</span>)sum=stk.top()+sum;</span><br><span class="line">        <span class="keyword">if</span>(a[i]==<span class="string">'-'</span>)sum=stk.top()-sum;</span><br><span class="line">        <span class="keyword">if</span>(a[i]==<span class="string">'*'</span>)sum=stk.top()*sum;</span><br><span class="line">        <span class="keyword">if</span>(a[i]==<span class="string">'/'</span>)sum=stk.top()/sum;</span><br><span class="line">        stk.pop();</span><br><span class="line">        stk.push(sum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>,stk.top());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h2><p>具有一定操作约束的线性表</p>
+<p>插入和删除操作：只能在一端插入，而在另一端删除</p>
+<h5 id="队列的顺序存储实现"><a href="#队列的顺序存储实现" class="headerlink" title="队列的顺序存储实现"></a>队列的顺序存储实现</h5><p>队列的顺序存储结构通常由一个一维数组和一个记录队列头元素位置的变量front以及一个记录队列尾元素位置的变量rear组成。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span> *<span class="title">Queue</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>&#123;</span></span><br><span class="line">	ElementType Data[MaxSize];</span><br><span class="line">	<span class="keyword">int</span> front;   <span class="comment">// 记录队头 </span></span><br><span class="line">	<span class="keyword">int</span> rear;    <span class="comment">// 记录队尾 </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Queue <span class="title">CreateQueue</span><span class="params">()</span></span>;  <span class="comment">// 初始化队列 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddQ</span><span class="params">(Queue Q,ElementType item)</span></span>;  <span class="comment">//  入队</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsFull</span><span class="params">(Queue Q)</span></span>; <span class="comment">// 判断队列是否已满 </span></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue Q)</span></span>;  <span class="comment">// 出队 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Queue Q)</span></span>; <span class="comment">// 判断队列是否为空 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化 </span></span><br><span class="line"><span class="function">Queue <span class="title">CreateQueue</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Queue Q;</span><br><span class="line">	Q = (Queue)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct QNode));</span><br><span class="line">	Q-&gt;front = <span class="number">-1</span>;</span><br><span class="line">	Q-&gt;rear = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">return</span> Q;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断队列是否已满</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsFull</span><span class="params">(Queue Q)</span></span>&#123;</span><br><span class="line"> 	<span class="keyword">return</span> ((Q-&gt;rear+<span class="number">1</span>) % MaxSize == Q-&gt;front);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 入队 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddQ</span><span class="params">(Queue Q,ElementType item)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(IsFull(Q))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"队列满"</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; </span><br><span class="line">		Q-&gt;rear = (Q-&gt;rear+<span class="number">1</span>) % MaxSize;</span><br><span class="line">		Q-&gt;Data[Q-&gt;rear] = item; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断队列是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Queue Q)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (Q-&gt;front == Q-&gt;rear);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 出队</span></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue Q)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(IsEmpty(Q))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"队列空"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		Q-&gt;front = (Q-&gt;front+<span class="number">1</span>) % MaxSize;</span><br><span class="line">		<span class="keyword">return</span> Q-&gt;Data[Q-&gt;front];</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Queue Q;</span><br><span class="line">	Q = CreateQueue();</span><br><span class="line">	AddQ(Q,<span class="number">3</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"3入队\n"</span>);</span><br><span class="line">	AddQ(Q,<span class="number">5</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"5入队\n"</span>);</span><br><span class="line">	AddQ(Q,<span class="number">11</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"11入队\n"</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d出队\n"</span>,DeleteQ(Q));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d出队\n"</span>,DeleteQ(Q));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="队列的链式存储实现"><a href="#队列的链式存储实现" class="headerlink" title="队列的链式存储实现"></a>队列的链式存储实现</h5><p>队列的链式存储结构也可以用一个单链表实现。插入和删除操作分别在链表的两头进行。</p>
+<p>队列指针front指向链表头，rear指向链表尾</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span> *<span class="title">Queue</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">	ElementType Data;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">Next</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>&#123;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rear</span>;</span>    <span class="comment">// 指向队尾结点 </span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">front</span>;</span>   <span class="comment">// 指向队头结点 </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">Queue <span class="title">CreateQueue</span><span class="params">()</span></span>;  <span class="comment">// 初始化队列 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddQ</span><span class="params">(Queue Q,ElementType item)</span></span>;  <span class="comment">//  入队</span></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue Q)</span></span>;  <span class="comment">// 出队 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Queue Q)</span></span>; <span class="comment">// 判断队列是否为空 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化 </span></span><br><span class="line"><span class="function">Queue <span class="title">CreateQueue</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Queue Q;</span><br><span class="line">	Q = (Queue)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct QNode));</span><br><span class="line">	Q-&gt;front = <span class="literal">NULL</span>;</span><br><span class="line">	Q-&gt;rear = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">return</span> Q;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 是否为空 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Queue Q)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (Q-&gt;front == <span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 入队</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddQ</span><span class="params">(Queue Q,ElementType item)</span></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">node</span>;</span></span><br><span class="line">	node = (struct Node *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct Node));</span><br><span class="line">	node-&gt;Data = item;</span><br><span class="line">	node-&gt;Next = <span class="literal">NULL</span>;</span><br><span class="line">	<span class="keyword">if</span>(Q-&gt;rear==<span class="literal">NULL</span>)&#123;  <span class="comment">//此时队列空 </span></span><br><span class="line">		Q-&gt;rear = node;</span><br><span class="line">		Q-&gt;front = node;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; <span class="comment">//不为空 </span></span><br><span class="line">		Q-&gt;rear-&gt;Next = node;  <span class="comment">// 将结点入队 </span></span><br><span class="line">		Q-&gt;rear = node;   <span class="comment">// rear 仍然保持最后 </span></span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 出队</span></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue Q)</span></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">FrontCell</span>;</span></span><br><span class="line">	ElementType FrontElem;</span><br><span class="line">	<span class="keyword">if</span>(IsEmpty(Q))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"队列空"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	FrontCell = Q-&gt;front;</span><br><span class="line">	<span class="keyword">if</span>(Q-&gt;front == Q-&gt;rear)&#123; <span class="comment">// 队列中只有一个元素 </span></span><br><span class="line">		Q-&gt;front = Q-&gt;rear = <span class="literal">NULL</span>; </span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		Q-&gt;front = Q-&gt;front-&gt;Next;</span><br><span class="line">	&#125;</span><br><span class="line">	FrontElem = FrontCell-&gt;Data;</span><br><span class="line">	<span class="built_in">free</span>(FrontCell);</span><br><span class="line">	<span class="keyword">return</span> FrontElem;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Queue Q;</span><br><span class="line">	Q = CreateQueue();</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"入队5\n"</span>); </span><br><span class="line">	AddQ(Q,<span class="number">5</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"入队4\n"</span>); </span><br><span class="line">	AddQ(Q,<span class="number">4</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"入队4\n"</span>); </span><br><span class="line">	AddQ(Q,<span class="number">3</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"出队%d\n"</span>,DeleteQ(Q));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"出队%d\n"</span>,DeleteQ(Q));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"出队%d\n"</span>,DeleteQ(Q));</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,DeleteQ(Q));</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/21/20200721/" data-id="ckcvoouct001ln4vafhcaruss"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/07/21/20200720/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/04/19/20200419_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zhaoyu&#39;s blog</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zhaoyu&#39;s blog"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

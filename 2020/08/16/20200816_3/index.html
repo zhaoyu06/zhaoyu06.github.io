@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zhaoyu&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200816_3" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/08/16/20200816_3/" class="article-date">
+  <time datetime="2020-08-16T12:23:13.097Z" itemprop="datePublished">2020-08-16</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h2 id="二叉搜索树"><a href="#二叉搜索树" class="headerlink" title="二叉搜索树"></a>二叉搜索树</h2><a id="more"></a>
+<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><p> 二叉搜索树（BST）也称二叉排序树或二叉查找树</p>
+<p>二叉搜索树：一棵二叉树，可以为空；如果不为空，满足以下性质：</p>
+<ol>
+<li>非空<strong>左子树</strong>的所有键值<strong>小于</strong>其根结点的键值</li>
+<li>非空<strong>右子树</strong>的所有键值<strong>大于</strong>其根结点的键值</li>
+<li>左、右子树都是二叉搜索树</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/20181101090543537.jpg" alt></p>
+<h3 id="2-特殊函数"><a href="#2-特殊函数" class="headerlink" title="2. 特殊函数"></a>2. 特殊函数</h3><ul>
+<li><code>BinTree Find(ElementType X,BinTree BST)</code>：从二叉搜索树 BST 中查找元素 X，返回其所在结点地址</li>
+<li><code>BinTree FindMin(BinTree BST)</code>：从二叉搜索树 BST 中查找并返回最小元素所在结点的地址</li>
+<li><code>BinTree FindMax(BinTree BST)</code>：从二叉搜索树 BST 中查找并返回最大元素所在结点的地址</li>
+<li><code>BinTree Insert(ElementType X,BinTree BST)</code>：插入一个元素进 BST</li>
+<li><code>BinTree Delete(ElementType X,BinTree BST)</code>：从 BST 中删除一个元素</li>
+</ul>
+<h4 id="1-查找"><a href="#1-查找" class="headerlink" title="1. 查找"></a>1. 查找</h4><ul>
+<li>查找从根结点开始，如果树为空，返回 NULL</li>
+<li>若搜索树不为空，则根结点键值和 X 进行比较，并进行不同处理：<ol>
+<li>若 X <strong>小于</strong>根结点键值，在<strong>左子树</strong>中继续查找</li>
+<li>若 X <strong>大于</strong>根结点键值，在<strong>右子树</strong>中继续查找</li>
+<li>如 X 等于根节点键值，查找结束，返回指向此结点的指针</li>
+</ol>
+</li>
+</ul>
+<h4 id="2-查找最大和最小元素"><a href="#2-查找最大和最小元素" class="headerlink" title="2. 查找最大和最小元素"></a>2. 查找最大和最小元素</h4><ul>
+<li><p><strong>最大元素</strong>一定是在树的<strong>最右</strong>分支的端结点上</p>
+</li>
+<li><p><strong>最小元素</strong>一定是在树的<strong>最左</strong>分支的端结点上</p>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20181101090730163.jpg" alt></p>
+<h4 id="3-删除"><a href="#3-删除" class="headerlink" title="3. 删除"></a>3. 删除</h4><p>删除的三种情况：</p>
+<ol>
+<li><p>要删除的是<strong>叶结点</strong>：直接删除，并将其父结点指针置为 NULL</p>
+</li>
+<li><p>要删除的结点<strong>只有一个孩子</strong>结点：将其父结点的指针指向要删除结点的孩子结点</p>
+</li>
+<li><p>要删除的结点有左、右两棵子树：用<strong>右子树的最小元素</strong>或<strong>左子树的最大元素</strong>替代被删除结点</p>
+<p><img src="https://img-blog.csdnimg.cn/20181101090806846.gif" alt> <img src="https://img-blog.csdnimg.cn/20181101090819459.gif" alt></p>
+</li>
+</ol>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span> *<span class="title">BinTree</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">TreeNode</span>&#123;</span></span><br><span class="line">	ElementType Data;</span><br><span class="line">	BinTree Left;</span><br><span class="line">	BinTree Right;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查找递归实现 </span></span><br><span class="line"><span class="function">BinTree <span class="title">Find</span><span class="params">(ElementType X,BinTree BST)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!BST)  <span class="comment">// 如果根结点为空，返回 NULL </span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>; </span><br><span class="line">	<span class="keyword">if</span>(X &lt; BST-&gt;Data) <span class="comment">// 比根结点小，去左子树查找 </span></span><br><span class="line">		<span class="keyword">return</span> Find(X,BST-&gt;Left); </span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(BST-&gt;Data &lt; X)  <span class="comment">// 比根结点大，去右子树查找 </span></span><br><span class="line">		<span class="keyword">return</span> Find(X,BST-&gt;Right);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(BST-&gt;Data == X) <span class="comment">// 找到了 </span></span><br><span class="line">		<span class="keyword">return</span> BST;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 查找非递归实现</span></span><br><span class="line"><span class="function">BinTree <span class="title">IterFind</span><span class="params">(ElementType X,BinTree BST)</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(BST)&#123;</span><br><span class="line">		<span class="keyword">if</span>(X &lt; BST-&gt;Data)</span><br><span class="line">			BST = BST-&gt;Left;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(BST-&gt;Data &lt; X)  <span class="comment">// 比根结点大，去右子树查找 </span></span><br><span class="line">			BST = BST-&gt;Right;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(BST-&gt;Data == X) <span class="comment">// 找到了 </span></span><br><span class="line">			<span class="keyword">return</span> BST;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 查找最小值的递归实现</span></span><br><span class="line"><span class="function">BinTree <span class="title">FindMin</span><span class="params">(BinTree BST)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!BST)    <span class="comment">// 如果为空了，返回 NULL </span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">NULL</span>;  </span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(BST-&gt;Left)   <span class="comment">// 还存在左子树，沿左分支继续查找 </span></span><br><span class="line">		<span class="keyword">return</span> FindMin(BST-&gt;Left);</span><br><span class="line">	<span class="keyword">else</span>  <span class="comment">// 找到了 </span></span><br><span class="line">		<span class="keyword">return</span> BST;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 查找最大值的非递归实现</span></span><br><span class="line"><span class="function">BinTree <span class="title">FindMax</span><span class="params">(BinTree BST)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(BST)  <span class="comment">// 如果不空 </span></span><br><span class="line">		<span class="keyword">while</span>(BST-&gt;Right)   <span class="comment">// 只要右子树还存在 </span></span><br><span class="line">			BST = BST-&gt;Right;</span><br><span class="line">	<span class="keyword">return</span> BST;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入</span></span><br><span class="line"><span class="function">BinTree <span class="title">Insert</span><span class="params">(ElementType X,BinTree BST)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!BST)&#123;  <span class="comment">// 如果为空，初始化该结点 </span></span><br><span class="line">		BST = (BinTree)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct TreeNode));</span><br><span class="line">		BST-&gt;Data = X;</span><br><span class="line">		BST-&gt;Left = <span class="literal">NULL</span>;</span><br><span class="line">		BST-&gt;Right = <span class="literal">NULL</span>;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123; <span class="comment">// 不为空 </span></span><br><span class="line">		<span class="keyword">if</span>(X &lt; BST-&gt;Data)  <span class="comment">// 如果小，挂在左边 </span></span><br><span class="line">			BST-&gt;Left = Insert(X,BST-&gt;Left);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(BST-&gt;Data &lt; X)  <span class="comment">// 如果大，挂在右边 </span></span><br><span class="line">			BST-&gt;Right = Insert(X,BST-&gt;Right);</span><br><span class="line">		<span class="comment">// 如果相等，什么都不用做 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> BST;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除</span></span><br><span class="line"><span class="function">BinTree <span class="title">Delete</span><span class="params">(ElementType X,BinTree BST)</span></span>&#123;</span><br><span class="line">	BinTree tmp;</span><br><span class="line">	<span class="keyword">if</span>(!BST)</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="string">"要删除的元素未找到"</span>;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(X &lt; BST-&gt;Data)   <span class="comment">// X 比当前结点值小，在左子树继续查找删除 </span></span><br><span class="line">		BST-&gt;Left = Delete(X,BST-&gt;Left);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(BST-&gt;Data &lt; X)   <span class="comment">// X 比当前结点值大，在右子树继续查找删除 </span></span><br><span class="line">		BST-&gt;Right = Delete(X,BST-&gt;Right);</span><br><span class="line">	<span class="keyword">else</span>&#123;  <span class="comment">//  找到被删除结点 </span></span><br><span class="line">		<span class="keyword">if</span>(BST-&gt;Left &amp;&amp; BST-&gt;Right)&#123;  <span class="comment">// 被删除结点有俩孩子结点 </span></span><br><span class="line">			tmp = FindMin(BST-&gt;Right);   <span class="comment">// 找到右子树中值最小的</span></span><br><span class="line">			BST-&gt;Data = tmp-&gt;Data;     <span class="comment">// 用找到的值覆盖当前结点 </span></span><br><span class="line">			BST-&gt;Right = Delete(tmp-&gt;Data,BST-&gt;Right);    <span class="comment">// 把前面找到的右子树最小值结点删除 </span></span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;  <span class="comment">// 被删除结点只有一个孩子结点或没有孩子结点 </span></span><br><span class="line">			tmp = BST;</span><br><span class="line">			<span class="keyword">if</span>(!BST-&gt;Left &amp;&amp; !BST-&gt;Right)  <span class="comment">// 没有孩子结点 </span></span><br><span class="line">				BST = <span class="literal">NULL</span>;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(BST-&gt;Left &amp;&amp; !BST-&gt;Right)  <span class="comment">// 只有左孩子结点 </span></span><br><span class="line">				BST = BST-&gt;Left;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(!BST-&gt;Left &amp;&amp; BST-&gt;Right)  <span class="comment">// 只有右孩子结点 </span></span><br><span class="line">				BST = BST-&gt;Right;</span><br><span class="line">			<span class="built_in">free</span>(tmp);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> BST;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 中序遍历 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">InOrderTraversal</span><span class="params">(BinTree BT)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(BT)&#123;</span><br><span class="line">		InOrderTraversal(BT-&gt;Left);  <span class="comment">// 进入左子树 </span></span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;BT-&gt;Data;  <span class="comment">// 打印根 </span></span><br><span class="line">		InOrderTraversal(BT-&gt;Right);  <span class="comment">// 进入右子树 </span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	BinTree BST = <span class="literal">NULL</span>;</span><br><span class="line">	BST = Insert(<span class="number">5</span>,BST); </span><br><span class="line">	BST = Insert(<span class="number">7</span>,BST); </span><br><span class="line">	BST = Insert(<span class="number">3</span>,BST); </span><br><span class="line">	BST = Insert(<span class="number">1</span>,BST); </span><br><span class="line">	BST = Insert(<span class="number">2</span>,BST); </span><br><span class="line">	BST = Insert(<span class="number">4</span>,BST); </span><br><span class="line">	BST = Insert(<span class="number">6</span>,BST); </span><br><span class="line">	BST = Insert(<span class="number">8</span>,BST); </span><br><span class="line">	BST = Insert(<span class="number">9</span>,BST); </span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">			    5</span></span><br><span class="line"><span class="comment">			   /\</span></span><br><span class="line"><span class="comment">			  3  7</span></span><br><span class="line"><span class="comment">             /\	 /\</span></span><br><span class="line"><span class="comment">            1 4 6  8</span></span><br><span class="line"><span class="comment">			\      \</span></span><br><span class="line"><span class="comment">			 2      9</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"中序遍历的结果是："</span>; </span><br><span class="line">	InOrderTraversal(BST);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"查找最小值是："</span>&lt;&lt;FindMin(BST)-&gt;Data&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"查找最大值是："</span>&lt;&lt;FindMax(BST)-&gt;Data&lt;&lt;<span class="built_in">endl</span>; </span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"查找值为3的结点左子树结点值为："</span>&lt;&lt;Find(<span class="number">3</span>,BST)-&gt;Left-&gt;Data&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"查找值为7的结点右子树结点值为："</span>&lt;&lt;IterFind(<span class="number">7</span>,BST)-&gt;Right-&gt;Data&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"删除值为5的结点"</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	Delete(<span class="number">5</span>,BST);</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">			    6</span></span><br><span class="line"><span class="comment">			   /\</span></span><br><span class="line"><span class="comment">			  3  7</span></span><br><span class="line"><span class="comment">             /\	  \</span></span><br><span class="line"><span class="comment">            1 4    8</span></span><br><span class="line"><span class="comment">			\      \</span></span><br><span class="line"><span class="comment">			 2      9</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"中序遍历的结果是："</span>; </span><br><span class="line">	InOrderTraversal(BST);</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/16/20200816_3/" data-id="ckdx29w2q001g9gvadzbnggvc"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/08/16/20200816_1/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/07/21/20200720/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zhaoyu&#39;s blog</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zhaoyu&#39;s blog"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

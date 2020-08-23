@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zhaoyu&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200823_1平衡二叉树" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/08/23/20200823_1平衡二叉树/" class="article-date">
+  <time datetime="2020-08-23T03:37:55.519Z" itemprop="datePublished">2020-08-23</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h1 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h1><a id="more"></a>
+<h3 id="0-为何要使用AVL树？"><a href="#0-为何要使用AVL树？" class="headerlink" title="0. 为何要使用AVL树？"></a>0. 为何要使用AVL树？</h3><p>二叉搜索树的搜索效率与其树的深度相关，而二叉搜索树的组成又与其插入序列相关，在极端情况下，二叉搜索树退化为一条单链（比如插入序列是 1 2 3 … n），使得搜索效率大大降低，为了避免这种情况出现，我们采用二叉平衡树对插入结点进行调整，使得树的深度尽可能小</p>
+<h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><ul>
+<li>平衡因子<br>BF(T) = hL _L - hR _R，其中 hL _L、hR _R 分别是左右子树的高度</li>
+<li>平衡二叉树(AVL 树)<br>空树，或者任一结点左、右子树高度差的绝对值不超过 1，即 |BF(T)|≤1 的树</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20181102110417706.jpg" alt></p>
+<h3 id="2-平衡二叉树的调整"><a href="#2-平衡二叉树的调整" class="headerlink" title="2. 平衡二叉树的调整"></a>2. 平衡二叉树的调整</h3><h4 id="0-遵循原则"><a href="#0-遵循原则" class="headerlink" title="0. 遵循原则"></a>0. 遵循原则</h4><ul>
+<li>从离插入结点最近的结点调整</li>
+</ul>
+<h4 id="1-RR-单旋"><a href="#1-RR-单旋" class="headerlink" title="1. RR 单旋"></a>1. RR 单旋</h4><p>当”插入结点”(BR)是”被破坏平衡结点”(A)<strong>右子树</strong>的<strong>右子树</strong>时，即 RR 插入时，采用 RR 旋转调整<br><img src="https://img-blog.csdnimg.cn/20181102110800268.jpg" alt><br>其基本思路是把 B 的左子树腾出来挂到 A 的右子树上，返回 B 作为当前子树的根</p>
+<p>示意图：<br><img src="https://img-blog.csdnimg.cn/20181102113105538.jpg" alt></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">AVLTree <span class="title">RRRotation</span><span class="params">(AVLTree A)</span></span>&#123;</span><br><span class="line">	AVLTree B = A-&gt;right;   </span><br><span class="line">	A-&gt;right = B-&gt;left;    </span><br><span class="line">	B-&gt;left = A;   </span><br><span class="line">	<span class="keyword">return</span> B;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-LL-单旋"><a href="#2-LL-单旋" class="headerlink" title="2. LL 单旋"></a>2. LL 单旋</h4><p>当”插入结点”(BL)是”被破坏平衡结点”(A)<strong>左子树</strong>的<strong>左子树</strong>时，即 LL 插入，采用 LL 旋转调整<br><img src="https://img-blog.csdnimg.cn/20181102112405164.jpg" alt><br>其基本思路是把 B 的右子树腾出来挂到 A 的左子树上，返回 B 作为当前子树的根</p>
+<p>示意图：<br><img src="https://img-blog.csdnimg.cn/20181102114124904.jpg" alt></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">AVLTree <span class="title">LLRotation</span><span class="params">(AVLTree A)</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	AVLTree B = A-&gt;left;  </span><br><span class="line">	A-&gt;left = B-&gt;right;   </span><br><span class="line">	B-&gt;right = A;     </span><br><span class="line">	<span class="keyword">return</span> B;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-LR-双旋"><a href="#3-LR-双旋" class="headerlink" title="3. LR 双旋"></a>3. LR 双旋</h4><p>当”插入结点”(CL 或者 CR)是”被破坏平衡结点”(A)<strong>左子树</strong>的<strong>右子树</strong>时，即 LR 插入，采用 LR 旋转调整<br><img src="https://img-blog.csdnimg.cn/20181102112415831.jpg" alt><br>基本思想是先将 B 作为根结点进行 <strong>RR 单旋</strong>转化为 LL 插入，再将 A 作为根结点进行 <strong>LL 单旋</strong>（先 RR 再 LL）</p>
+<p>示意图：<br><img src="https://img-blog.csdnimg.cn/20181102115543530.jpg" alt></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">AVLTree <span class="title">RRRotation</span><span class="params">(AVLTree A)</span></span>&#123;</span><br><span class="line">	AVLTree B = A-&gt;right;   </span><br><span class="line">	A-&gt;right = B-&gt;left;    </span><br><span class="line">	B-&gt;left = A;   </span><br><span class="line">	<span class="keyword">return</span> B;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="function">AVLTree <span class="title">LLRotation</span><span class="params">(AVLTree A)</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	AVLTree B = A-&gt;left;  </span><br><span class="line">	A-&gt;left = B-&gt;right;   </span><br><span class="line">	B-&gt;right = A;     </span><br><span class="line">	<span class="keyword">return</span> B;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="function">AVLTree <span class="title">LRRotation</span><span class="params">(AVLTree A)</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	A-&gt;left = RRRotation(A-&gt;left);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> LLRotation(A);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结：叫 LR 双旋是从上到下看，而实际先 RR 单旋再 LL 单旋是从下往上的过程</p>
+<h4 id="4-RL-双旋"><a href="#4-RL-双旋" class="headerlink" title="4. RL 双旋"></a>4. RL 双旋</h4><p>当”插入结点”(CL 或者 CR)是”被破坏平衡结点”(A)<strong>右子树</strong>的<strong>左子树</strong>时，即 RL 插入，采用 RL 旋转调整<br><img src="https://img-blog.csdnimg.cn/20181102112435166.jpg" alt><br>基本思想是先将 B 作为根结点进行 <strong>LL 单旋</strong>转化为 RR 插入，再将 A 作为根结点进行 <strong>RR单旋</strong>（先 LL 再 RR）</p>
+<p>示意图：<br><img src="https://img-blog.csdnimg.cn/20181102115827971.jpg" alt></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">AVLTree <span class="title">RLRotation</span><span class="params">(AVLTree A)</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	A-&gt;right = LLRotation(A-&gt;right);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> RRRotation(A); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总结：叫 RL 双旋是从上到下看，而实际先 LL 单旋再 RR 单旋是从下往上的过程</p>
+<img src="C:\Users\Huawei\AppData\Roaming\Typora\typora-user-images\image-20200731133648750.png" alt="image-20200731133648750" style="zoom:100%;">
+
+
+
+
+
+<h3 id="Root-of-AVL-Tree"><a href="#Root-of-AVL-Tree" class="headerlink" title="Root of AVL Tree"></a>Root of AVL Tree</h3><p>An AVL tree is a self-balancing binary search tree. In an AVL tree, the heights of the two child subtrees of any node differ by at most one; if at any time they differ by more than one, rebalancing is done to restore this property. Figures 1-4 illustrate the rotation rules.</p>
+<p><img src="https://images.ptausercontent.com/31" alt="img"> <img src="https://images.ptausercontent.com/32" alt="img"></p>
+<p><img src="https://images.ptausercontent.com/33" alt="img"> <img src="https://images.ptausercontent.com/34" alt="img"></p>
+<p>Now given a sequence of insertions, you are supposed to tell the root of the resulting AVL tree.</p>
+<h3 id="Input-Specification"><a href="#Input-Specification" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains a positive integer <em>N</em> (≤20) which is the total number of keys to be inserted. Then <em>N</em> distinct integer keys are given in the next line. All the numbers in a line are separated by a space.</p>
+<h3 id="Output-Specification"><a href="#Output-Specification" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, print the root of the resulting AVL tree in one line.</p>
+<h3 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1:"></a>Sample Input 1:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">88 70 61 96 120</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output 1:"></a>Sample Output 1:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">70</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2:"></a>Sample Input 2:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">88 70 61 96 120 90 65</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2:"></a>Sample Output 2:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">88</span><br></pre></td></tr></table></figure>
+
+<h4 id="code"><a href="#code" class="headerlink" title="code:"></a>code:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">AVLNode</span> *<span class="title">AVLTree</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">AVLNode</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> data;</span><br><span class="line">    AVLTree left;</span><br><span class="line">    AVLTree right;</span><br><span class="line">    <span class="keyword">int</span> height;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getHeight</span><span class="params">(AVLTree T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> T==<span class="literal">NULL</span>?<span class="number">-1</span>:T-&gt;height;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">AVLTree <span class="title">LLRotation</span><span class="params">(AVLTree A)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    AVLTree B=A-&gt;left;</span><br><span class="line">    A-&gt;left=B-&gt;right;</span><br><span class="line">    B-&gt;right=A;</span><br><span class="line">    A-&gt;height=max(getHeight(A-&gt;left),getHeight(A-&gt;right))+<span class="number">1</span>;</span><br><span class="line">    B-&gt;height=max(getHeight(B-&gt;left),A-&gt;height)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> B;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">AVLTree <span class="title">RRRotation</span><span class="params">(AVLTree A)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    AVLTree B=A-&gt;right;</span><br><span class="line">    A-&gt;right=B-&gt;left;</span><br><span class="line">    B-&gt;left=A;</span><br><span class="line">    A-&gt;height=max(getHeight(A-&gt;left),getHeight(A-&gt;right))+<span class="number">1</span>;</span><br><span class="line">    B-&gt;height=max(getHeight(B-&gt;left),A-&gt;height)+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> B;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">AVLTree <span class="title">LRRotation</span><span class="params">(AVLTree A)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A-&gt;left=RRRotation(A-&gt;left);</span><br><span class="line">    <span class="keyword">return</span> LLRotation(A);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">AVLTree <span class="title">RLRotation</span><span class="params">(AVLTree A)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    A-&gt;right=LLRotation(A-&gt;right);</span><br><span class="line">    <span class="keyword">return</span> RRRotation(A);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">AVLTree <span class="title">Insert</span><span class="params">(AVLTree T,<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!T)</span><br><span class="line">    &#123;</span><br><span class="line">        T=<span class="keyword">new</span> AVLNode;</span><br><span class="line">        T-&gt;data=x;</span><br><span class="line">        T-&gt;left=<span class="literal">NULL</span>;</span><br><span class="line">        T-&gt;right=<span class="literal">NULL</span>;</span><br><span class="line">        T-&gt;height=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;T-&gt;data)</span><br><span class="line">        &#123;</span><br><span class="line">            T-&gt;left=Insert(T-&gt;left,x);</span><br><span class="line">            <span class="keyword">if</span>(getHeight(T-&gt;left)-getHeight(T-&gt;right)==<span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(x&lt;T-&gt;left-&gt;data)T=LLRotation(T);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(x&gt;T-&gt;left-&gt;data)T=LRRotation(T);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(x&gt;T-&gt;data)</span><br><span class="line">        &#123;</span><br><span class="line">            T-&gt;right=Insert(T-&gt;right,x);</span><br><span class="line">            <span class="keyword">if</span>(getHeight(T-&gt;right)-getHeight(T-&gt;left)==<span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(x&lt;T-&gt;right-&gt;data)T=RLRotation(T);</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(x&gt;T-&gt;right-&gt;data)T=RRRotation(T);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    T-&gt;height=max(getHeight(T-&gt;left),getHeight(T-&gt;right))+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> T;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    AVLTree T=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">int</span> t;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">        T=Insert(T,t);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;T-&gt;data;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Complete-Binary-Search-Tree"><a href="#Complete-Binary-Search-Tree" class="headerlink" title="Complete Binary Search Tree"></a><strong>Complete Binary Search Tree</strong></h3><p>A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:</p>
+<ul>
+<li><p>The left subtree of a node contains only nodes with keys less than the node’s key.</p>
+</li>
+<li><p>The right subtree of a node contains only nodes with keys greater than or equal to the node’s key.</p>
+</li>
+<li><p>Both the left and right subtrees must also be binary search trees.</p>
+</li>
+</ul>
+<p>A Complete Binary Tree (CBT) is a tree that is completely filled, with the possible exception of the bottom level, which is filled from left to right.</p>
+<p>Now given a sequence of distinct non-negative integer keys, a unique BST can be constructed if it is required that the tree must also be a CBT. You are supposed to output the level order traversal sequence of this BST.</p>
+<h3 id="Input-Specification-1"><a href="#Input-Specification-1" class="headerlink" title="Input Specification:"></a>Input Specification:</h3><p>Each input file contains one test case. For each case, the first line contains a positive integer <em>N</em> (≤1000). Then <em>N</em> distinct non-negative integer keys are given in the next line. All the numbers in a line are separated by a space and are no greater than 2000.</p>
+<h3 id="Output-Specification-1"><a href="#Output-Specification-1" class="headerlink" title="Output Specification:"></a>Output Specification:</h3><p>For each test case, print in one line the level order traversal sequence of the corresponding complete binary search tree. All the numbers in a line must be separated by a space, and there must be no extra space at the end of the line.</p>
+<h3 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input:"></a>Sample Input:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">1 2 3 4 5 6 7 8 9 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output:"></a>Sample Output:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6 3 8 1 5 7 9 0 2 4</span><br></pre></td></tr></table></figure>
+
+<h4 id="code-1"><a href="#code-1" class="headerlink" title="code:"></a>code:</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> T[<span class="number">2005</span>];</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">2005</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getLeftTree</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> h=log2(n+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> k=<span class="built_in">pow</span>(<span class="number">2</span>,h<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">int</span> x=n+<span class="number">1</span><span class="number">-2</span>*k;</span><br><span class="line">    x=min(x,k);</span><br><span class="line">    <span class="keyword">return</span> k<span class="number">-1</span>+x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">slove</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r,<span class="keyword">int</span> root)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n=r-l+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(!n)<span class="keyword">return</span> ;</span><br><span class="line">    <span class="keyword">int</span> L=getLeftTree(n);</span><br><span class="line">    T[root]=a[l+L];</span><br><span class="line">    <span class="keyword">int</span> leftroot=<span class="number">2</span>*root+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> rightroot=leftroot+<span class="number">1</span>;</span><br><span class="line">    slove(l,l+L<span class="number">-1</span>,leftroot);</span><br><span class="line">    slove(l+L+<span class="number">1</span>,r,rightroot);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span>  <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(a,a+n);</span><br><span class="line">    slove(<span class="number">0</span>,n<span class="number">-1</span>,<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(i)<span class="built_in">cout</span>&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;T[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/23/20200823_1平衡二叉树/" data-id="cke6jwrhe001txcvajibnp3uo"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/08/23/20200823_3图练习/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/08/23/20200823_6堆/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zhaoyu&#39;s blog</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zhaoyu&#39;s blog"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

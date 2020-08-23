@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    
+    zhaoyu&#39;s blog</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+</html>
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-20200823_6堆" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/08/23/20200823_6堆/" class="article-date">
+  <time datetime="2020-08-23T03:37:55.495Z" itemprop="datePublished">2020-08-23</time>
+</a>
+        
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h1 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h1><a id="more"></a>
+<h3 id="1-什么是堆"><a href="#1-什么是堆" class="headerlink" title="1. 什么是堆"></a>1. 什么是堆</h3><p>优先队列（priority Queue）：特殊的”队列”，取出元素的顺序是依照元素的优先级（关键字）大小，而不是元素进入队列的先后顺序，以<strong>完全二叉树</strong>存储</p>
+<p><img src="https://img-blog.csdnimg.cn/20181104104440648.jpg" alt></p>
+<p>两个特性</p>
+<ul>
+<li><p>结构性：用<strong>数组</strong>表示的<strong>完全二叉树</strong></p>
+</li>
+<li><p>有序性：任一结点的关键字是其子树所有结点的最大值（或最小值）</p>
+<ul>
+<li><p>“最大堆(MaxHeap)”，也称”大顶堆”：最大值</p>
+<p><img src="https://img-blog.csdnimg.cn/20181104104459868.jpg" alt></p>
+</li>
+<li><p>“最小堆(MinHeap)”，也称”小顶堆”：最小值</p>
+<p><img src="https://img-blog.csdnimg.cn/20181104104516209.jpg" alt></p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/20181104104530440.jpg" alt></p>
+<h3 id="2-堆的抽象数据类型描述"><a href="#2-堆的抽象数据类型描述" class="headerlink" title="2. 堆的抽象数据类型描述"></a>2. 堆的抽象数据类型描述</h3><ul>
+<li><p>数据名称：最大堆（MaxHeap）</p>
+</li>
+<li><p>数据对象集：完全二叉树，每个结点的元素值<strong>不小于</strong>其子结点的元素值</p>
+</li>
+<li><p>操作集：最大堆 H ∈ MaxHeap，元素 item ∈ ElementType</p>
+<p>主要操作有：</p>
+<ul>
+<li><code>MaxHeap Create(int MaxSize)</code>：创建一个空的最大堆</li>
+<li><code>Boolean IsFull(MaxHeap H)</code>：判断最大堆 H 是否已满</li>
+<li><code>Boolean Insert(MaxHeap H,ElementType item)</code>：将元素 item 插入最大堆 H</li>
+<li><code>Boolean IsEmpty(MaxHeap H)</code>：判断最大堆 H 是否为空</li>
+<li><code>ElementType DeleteMax(MaxHeap H)</code>：返回 H 中最大元素（高优先级）</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-插入"><a href="#1-插入" class="headerlink" title="1. 插入"></a>1. 插入</h4><p> 插入数组最后一个位置，再从下往上找合适地方</p>
+<h4 id="2-删除"><a href="#2-删除" class="headerlink" title="2. 删除"></a>2. 删除</h4><p> 删除根结点，将数组最后一个位置的数取到根结点，从上往下找合适地方</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxData 100000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR -1</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElementType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">HeapStruct</span> *<span class="title">MaxHeap</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">HeapStruct</span>&#123;</span></span><br><span class="line">	ElementType *Elements;   <span class="comment">// 存储堆元素的数组 </span></span><br><span class="line">	<span class="keyword">int</span> Size;      <span class="comment">// 堆的当前元素个数 </span></span><br><span class="line">	<span class="keyword">int</span> Capacity;  <span class="comment">// 堆的最大容量 </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">MaxHeap <span class="title">Create</span><span class="params">(<span class="keyword">int</span> MaxSize)</span></span>;  <span class="comment">// 建堆 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsFull</span><span class="params">(MaxHeap H)</span></span>;    <span class="comment">// 判断堆是否满</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Insert</span><span class="params">(MaxHeap H,ElementType item)</span></span>;   <span class="comment">// 插入元素</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(MaxHeap H)</span></span>;    <span class="comment">//  判断堆是否为空</span></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteMax</span><span class="params">(MaxHeap H)</span></span>;  <span class="comment">// 删除并返回堆中最大元素</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LevelOrderTraversal</span><span class="params">(MaxHeap H)</span></span>;  <span class="comment">// 层序遍历 </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 建堆 </span></span><br><span class="line"><span class="function">MaxHeap <span class="title">Create</span><span class="params">(<span class="keyword">int</span> MaxSize)</span></span>&#123;</span><br><span class="line">	MaxHeap H = (MaxHeap)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct HeapStruct));</span><br><span class="line">	<span class="comment">// Elements[0] 作为哨兵，堆元素从  Elements[1] 开始存放 </span></span><br><span class="line">	H-&gt;Elements = (ElementType *)<span class="built_in">malloc</span>((MaxSize+<span class="number">1</span>) * <span class="keyword">sizeof</span>(ElementType));</span><br><span class="line">	H-&gt;Size = <span class="number">0</span>;</span><br><span class="line">	H-&gt;Capacity = MaxSize;</span><br><span class="line">	<span class="comment">// "哨兵"大于堆中所有可能的值 </span></span><br><span class="line">	H-&gt;Elements[<span class="number">0</span>] = MaxData;</span><br><span class="line">	<span class="keyword">return</span> H;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入，从完全二叉树的最后一个位置插入 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Insert</span><span class="params">(MaxHeap H,ElementType item)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(IsFull(H))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"堆已满，无法插入！\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> i = ++H-&gt;Size;  <span class="comment">// 指向堆中最后一个位置 </span></span><br><span class="line">	<span class="keyword">for</span>(;H-&gt;Elements[i/<span class="number">2</span>] &lt; item;i/=<span class="number">2</span>)    <span class="comment">// 向上找比 item 大的结点 </span></span><br><span class="line">		H-&gt;Elements[i] = H-&gt;Elements[i/<span class="number">2</span>];  <span class="comment">//  向下赋值 </span></span><br><span class="line">	H-&gt;Elements[i] = item;  <span class="comment">// 找到了，把 item 值放进去 </span></span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 删除，从根结点删除 </span></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteMax</span><span class="params">(MaxHeap H)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> parent,child;</span><br><span class="line">	ElementType Max,tmp;</span><br><span class="line">	<span class="keyword">if</span>(IsEmpty(H))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"堆为空，无法删除！\n"</span>);</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	&#125;</span><br><span class="line">	Max = H-&gt;Elements[<span class="number">1</span>];  <span class="comment">// 拿到最大值</span></span><br><span class="line">	tmp = H-&gt;Elements[H-&gt;Size--];  <span class="comment">// 拿到完全二叉树最后一个值 </span></span><br><span class="line">	<span class="comment">// 判别条件：parent 是否有左孩子结点 </span></span><br><span class="line">	<span class="keyword">for</span>(parent=<span class="number">1</span>;parent*<span class="number">2</span>&lt;=H-&gt;Size;parent=child)&#123;</span><br><span class="line">		<span class="comment">// 左右孩子结点中找较大的值 </span></span><br><span class="line">		child = <span class="number">2</span> * parent;  <span class="comment">// 左孩子结点 </span></span><br><span class="line">		<span class="comment">// child!=H-&gt;Size 表示 child 不为当前最后一个结点，即 parent 有右孩子结点 </span></span><br><span class="line">		<span class="keyword">if</span>((child!=H-&gt;Size) &amp;&amp;(H-&gt;Elements[child] &lt; H-&gt;Elements[child+<span class="number">1</span>]))</span><br><span class="line">			child++;  </span><br><span class="line">		<span class="comment">// 给 tmp 找个合适的位置 </span></span><br><span class="line">		<span class="comment">// 如果当前左右孩子结点比 tmp 都小，说明 tmp 位置已经合适 </span></span><br><span class="line">		<span class="keyword">if</span>(H-&gt;Elements[child] &lt;= tmp)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span>    <span class="comment">// 否则把较大的孩子结点提上来，自己继续下去找 </span></span><br><span class="line">			H-&gt;Elements[parent] = H-&gt;Elements[child];</span><br><span class="line">	&#125;</span><br><span class="line">	H-&gt;Elements[parent] = tmp;  <span class="comment">// 在合适的位置把 tmp 放进去 </span></span><br><span class="line">	<span class="keyword">return</span> Max;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否已经满 </span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsFull</span><span class="params">(MaxHeap H)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (H-&gt;Size == H-&gt;Capacity);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 判断是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">IsEmpty</span><span class="params">(MaxHeap H)</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> !H-&gt;Size;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 层序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LevelOrderTraversal</span><span class="params">(MaxHeap H)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"层序遍历的结果是："</span>);</span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">1</span>;i&lt;=H-&gt;Size;i++)&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d "</span>,H-&gt;Elements[i]);</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	MaxHeap H;</span><br><span class="line">	<span class="keyword">int</span> MaxSize = <span class="number">100</span>;</span><br><span class="line">	H = Create(MaxSize);</span><br><span class="line">	Insert(H,<span class="number">55</span>);</span><br><span class="line">	Insert(H,<span class="number">66</span>);</span><br><span class="line">	Insert(H,<span class="number">44</span>);</span><br><span class="line">	Insert(H,<span class="number">33</span>);</span><br><span class="line">	Insert(H,<span class="number">11</span>);</span><br><span class="line">	Insert(H,<span class="number">22</span>);</span><br><span class="line">	Insert(H,<span class="number">88</span>);</span><br><span class="line">	Insert(H,<span class="number">99</span>);</span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">		 99</span></span><br><span class="line"><span class="comment">		/  \</span></span><br><span class="line"><span class="comment">	   88  66</span></span><br><span class="line"><span class="comment">	  / \  / \</span></span><br><span class="line"><span class="comment">	 55 11 22 44</span></span><br><span class="line"><span class="comment">	/ </span></span><br><span class="line"><span class="comment">   33	  </span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	LevelOrderTraversal(H);</span><br><span class="line">	DeleteMax(H);</span><br><span class="line">	LevelOrderTraversal(H);</span><br><span class="line">	DeleteMax(H);</span><br><span class="line">	LevelOrderTraversal(H);</span><br><span class="line">	DeleteMax(H);</span><br><span class="line">	LevelOrderTraversal(H);</span><br><span class="line">	DeleteMax(H);</span><br><span class="line">	LevelOrderTraversal(H);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-最小堆的建立"><a href="#3-最小堆的建立" class="headerlink" title="3.最小堆的建立"></a>3.最小堆的建立</h3><p>不是初始化堆啦！<br>堆的建立：将<strong>已经存在的 N 个元素</strong>按最小堆的要求存放在一个一维数组中</p>
+<h4 id="0-注意"><a href="#0-注意" class="headerlink" title="0. 注意"></a>0. 注意</h4><p>对于一组相同数据，插入建堆和调整建堆建出来的堆也许不一样</p>
+<h4 id="1-插入建堆"><a href="#1-插入建堆" class="headerlink" title="1. 插入建堆"></a>1. 插入建堆</h4><p>通过插入，将 N 个元素一个一个相继插入到一个<strong>初始为空</strong>的堆中去，其时间代价最大是 O(NlogN)（每次插入是 logN，总共 N 次）</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MinData = <span class="number">-100000</span>;  <span class="comment">// 哨兵值</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MaxSize = <span class="number">1005</span>;   <span class="comment">// 最大个数 </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">HeapStruct</span> *<span class="title">Heap</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">HeapStruct</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> *data;   <span class="comment">// 存值的数组 </span></span><br><span class="line">	<span class="keyword">int</span> size;   <span class="comment">// 当前元素个数 </span></span><br><span class="line">	<span class="keyword">int</span> capacity;  <span class="comment">// 最大容量 </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化堆</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MinData = <span class="number">-100000</span>;  <span class="comment">// 哨兵值</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MaxSize = <span class="number">1005</span>;   <span class="comment">// 最大个数 </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">HeapStruct</span> *<span class="title">Heap</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">HeapStruct</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> *data;   <span class="comment">// 存值的数组 </span></span><br><span class="line">	<span class="keyword">int</span> size;   <span class="comment">// 当前元素个数 </span></span><br><span class="line">	<span class="keyword">int</span> capacity;  <span class="comment">// 最大容量 </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化堆</span></span><br><span class="line"><span class="function">Heap <span class="title">Create</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Heap H;</span><br><span class="line">	H = (Heap)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct HeapStruct));</span><br><span class="line">	H-&gt;data = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * (MaxSize+<span class="number">1</span>));</span><br><span class="line">	H-&gt;size = <span class="number">0</span>;</span><br><span class="line">	H-&gt;capacity = MaxSize;</span><br><span class="line">	H-&gt;data[<span class="number">0</span>] = MinData;</span><br><span class="line">	<span class="keyword">return</span> H;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 插入</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">(Heap H,<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = ++H-&gt;size;  <span class="comment">// 指向数组最后一个 </span></span><br><span class="line">	<span class="keyword">for</span>(;H-&gt;data[i/<span class="number">2</span>]&gt;x;i/=<span class="number">2</span>)</span><br><span class="line">		H-&gt;data[i] = H-&gt;data[i/<span class="number">2</span>];</span><br><span class="line">	H-&gt;data[i] = x;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bl</span><span class="params">(Heap H)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=H-&gt;size;i++)</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;H-&gt;data[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Heap H;</span><br><span class="line">	H = Create();</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">int</span> t;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">		Insert(H,t);</span><br><span class="line">	&#125;</span><br><span class="line">	bl(H);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-调整建堆"><a href="#2-调整建堆" class="headerlink" title="2. 调整建堆"></a>2. 调整建堆</h4><p>将 N 个元素直接按顺序存入，再调整各结点的位置（简单说来，对于从最后一个有孩子结点的结点来说，其本身结点和孩子结点共同构成”子最小堆”，借助前面删除的想法，对每个”子最小堆”排序，当排序完成，整个最小堆也建立成功），时间代价是 O(n)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MinData = <span class="number">-100000</span>;  <span class="comment">// 哨兵值</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MaxSize = <span class="number">1005</span>;   <span class="comment">// 最大个数 </span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">HeapStruct</span> *<span class="title">Heap</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">HeapStruct</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> *data;   <span class="comment">// 存值的数组 </span></span><br><span class="line">	<span class="keyword">int</span> size;   <span class="comment">// 当前元素个数 </span></span><br><span class="line">	<span class="keyword">int</span> capacity;  <span class="comment">// 最大容量 </span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 初始化堆</span></span><br><span class="line"><span class="function">Heap <span class="title">Create</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Heap H;</span><br><span class="line">	H = (Heap)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct HeapStruct));</span><br><span class="line">	H-&gt;data = (<span class="keyword">int</span> *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>) * (MaxSize+<span class="number">1</span>));</span><br><span class="line">	H-&gt;size = <span class="number">0</span>;</span><br><span class="line">	H-&gt;capacity = MaxSize;</span><br><span class="line">	H-&gt;data[<span class="number">0</span>] = MinData;</span><br><span class="line">	<span class="keyword">return</span> H;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 排序，类似堆的"删除操作" </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">sort</span><span class="params">(Heap H,<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> child,parent;</span><br><span class="line">	<span class="keyword">int</span> tmp = H-&gt;data[i];  <span class="comment">// 拿到当前"根结点的值" </span></span><br><span class="line">	<span class="keyword">for</span>(parent = i;parent*<span class="number">2</span>&lt;=H-&gt;size;parent = child)&#123;</span><br><span class="line">		child = <span class="number">2</span> * parent;</span><br><span class="line">		<span class="keyword">if</span>((child!=H-&gt;size) &amp;&amp; (H-&gt;data[child+<span class="number">1</span>] &lt; H-&gt;data[child]))</span><br><span class="line">			child++;</span><br><span class="line">		<span class="keyword">if</span>(H-&gt;data[child] &gt;= tmp)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			H-&gt;data[parent] = H-&gt;data[child]; </span><br><span class="line">	&#125;</span><br><span class="line">	H-&gt;data[parent] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 调整</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">adjust</span><span class="params">(Heap H)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i= H-&gt;size/<span class="number">2</span>;</span><br><span class="line">	<span class="keyword">for</span>(;i&gt;<span class="number">0</span>;i--)&#123;</span><br><span class="line">		<span class="comment">// 以每个有孩子结点的结点作为根结点，对其子树进行堆排序 </span></span><br><span class="line">		sort(H,i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 遍历 </span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bl</span><span class="params">(Heap H)</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=H-&gt;size;i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;H-&gt;data[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	Heap H;</span><br><span class="line">	H = Create();</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;n;i++)</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;H-&gt;data[++H-&gt;size];</span><br><span class="line">	adjust(H);</span><br><span class="line">	bl(H); </span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="STL-优先队列"><a href="#STL-优先队列" class="headerlink" title="STL 优先队列"></a>STL 优先队列</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//升序队列，小顶堆</span></span><br><span class="line">priority_queue &lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,greater&lt;<span class="keyword">int</span>&gt; &gt; q;</span><br><span class="line"><span class="comment">//降序队列，大顶堆</span></span><br><span class="line">priority_queue &lt;<span class="keyword">int</span>,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,less&lt;<span class="keyword">int</span>&gt; &gt;q;</span><br><span class="line"><span class="comment">//默认为大顶堆</span></span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/08/23/20200823_6堆/" data-id="cke6jwrhg001vxcvaueoc10bh"
+         class="article-share-link">Share</a>
+      
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/08/23/20200823_1平衡二叉树/" class="article-nav-link">
+        <strong class="article-nav-caption">Newer posts</strong>
+        <div class="article-nav-title">
+          
+            (no title)
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/08/23/20200823_7并查集/" class="article-nav-link">
+        <strong class="article-nav-caption">Olde posts</strong>
+        <div class="article-nav-title"></div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+    <li><i class="fe fe-bookmark"></i> <span id="busuanzi_value_page_pv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2020 zhaoyu&#39;s blog</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="zhaoyu&#39;s blog"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">Home</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">Archives</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">Gallery</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">About</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="Search">
+        <i class="fe fe-search"></i>
+        Search
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>
